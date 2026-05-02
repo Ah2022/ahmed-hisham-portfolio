@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
+import SkillBars from "./SkillBars";
 
 const stats = [
   { value: "69,145", unit: "m²", label: "Largest Project" },
@@ -82,6 +83,9 @@ export default function About() {
                 </motion.div>
               ))}
             </div>
+
+            {/* Animated Skill Bars */}
+            <SkillBars />
           </motion.div>
         </div>
       </div>

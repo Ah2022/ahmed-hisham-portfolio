@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import StatusIndicator from "./StatusIndicator";
 
 const roles = [
   "BIM Automation Engineer",
@@ -81,10 +82,7 @@ export default function Hero() {
                 transition={{ delay: 0.2 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20"
               >
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs font-mono font-medium text-primary">
-                  Available for Projects
-                </span>
+                <StatusIndicator showLabel={true} />
               </motion.div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold leading-tight tracking-tight">

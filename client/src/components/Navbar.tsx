@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import InteractiveLogo from "./InteractiveLogo";
+import StatusIndicator from "./StatusIndicator";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -30,10 +32,8 @@ export default function Navbar() {
       }`}
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="flex items-center gap-2">
-          <span className="font-mono text-sm font-semibold tracking-wider text-primary">
-            AH
-          </span>
+        <a href="#" className="flex items-center gap-3">
+          <InteractiveLogo />
           <span className="hidden sm:inline font-sans text-sm font-medium text-foreground/80">
             Ahmed Hisham
           </span>
