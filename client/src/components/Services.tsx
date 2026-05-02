@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { Cpu, Layers, Brain, Search } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const services = [
   {
@@ -30,8 +31,112 @@ const services = [
     description:
       "Multi-discipline coordination using Navisworks and BIM 360. Zero-clash delivery through systematic detection, resolution, and verification workflows.",
     tags: ["Navisworks", "BIM 360", "IFC"],
+    hasAnimation: true,
   },
 ];
+
+function ClashDetectionAnimation() {
+  const [state, setState] = useState<"detected" | "resolving" | "resolved">("detected");
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setState((prev) => {
+        if (prev === "detected") return "resolving";
+        if (prev === "resolving") return "resolved";
+        return "detected";
+      });
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="mt-4 p-4 rounded-lg bg-secondary/30 border border-border/50">
+      <svg
+        viewBox="0 0 300 150"
+        className="w-full h-auto"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <style>{`
+            @keyframes clashPulse { 0%, 100% { r: 6; } 50% { r: 8; } }
+            @keyframes resolveFlow { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
+            .clash-indicator { animation: clashPulse 0.6s ease-in-out infinite; }
+          `}</style>
+        </defs>
+
+        {/* Left Element - Pipe */}
+        <rect x="20" y="50" width="60" height="30" fill="#3B82F6" opacity="0.3" rx="4" />
+        <text x="50" y="70" fontSize="10" fill="#3B82F6" textAnchor="middle" fontWeight="bold">
+          Pipe
+        </text>
+
+        {/* Right Element - Duct */}
+        <rect x="220" y="50" width="60" height="30" fill="#8B5CF6" opacity="0.3" rx="4" />
+        <text x="250" y="70" fontSize="10" fill="#8B5CF6" textAnchor="middle" fontWeight="bold">
+          Duct
+        </text>
+
+        {/* Connection Line - Changes based on state */}
+        {state === "detected" && (
+          <>
+            <line x1="80" y1="65" x2="220" y2="65" stroke="#EF4444" strokeWidth="2" />
+            <circle cx="50" cy="65" r="6" fill="#EF4444" className="clash-indicator" />
+            <circle cx="250" cy="65" r="6" fill="#EF4444" className="clash-indicator" />
+            <text x="150" y="35" fontSize="11" fill="#EF4444" textAnchor="middle" fontWeight="bold">
+              CLASH DETECTED
+            </text>
+          </>
+        )}
+
+        {state === "resolving" && (
+          <>
+            <path
+              d="M 80 65 Q 150 40, 220 65"
+              stroke="#F59E0B"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <circle cx="50" cy="65" r="6" fill="#F59E0B" opacity="0.6" />
+            <circle cx="250" cy="65" r="6" fill="#F59E0B" opacity="0.6" />
+            <text x="150" y="35" fontSize="11" fill="#F59E0B" textAnchor="middle" fontWeight="bold">
+              RESOLVING...
+            </text>
+            <motion.circle
+              cx="150"
+              cy="65"
+              r="4"
+              fill="#F59E0B"
+              animate={{ cx: [80, 220] }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            />
+          </>
+        )}
+
+        {state === "resolved" && (
+          <>
+            <line x1="80" y1="65" x2="220" y2="65" stroke="#22C55E" strokeWidth="2" />
+            <circle cx="50" cy="65" r="6" fill="#22C55E" />
+            <circle cx="250" cy="65" r="6" fill="#22C55E" />
+            <text x="150" y="35" fontSize="11" fill="#22C55E" textAnchor="middle" fontWeight="bold">
+              RESOLVED ✓
+            </text>
+          </>
+        )}
+      </svg>
+
+      {/* State Label */}
+      <div className="mt-3 text-center">
+        <span className="text-xs font-mono font-semibold">
+          {state === "detected" && <span className="text-red-400">Clash Detected</span>}
+          {state === "resolving" && <span className="text-amber-400">Resolving Conflict...</span>}
+          {state === "resolved" && <span className="text-green-400">Zero Clashes</span>}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export default function Services() {
   const { ref, inView } = useInView({ threshold: 0.1 });
@@ -89,6 +194,7 @@ export default function Services() {
                       </span>
                     ))}
                   </div>
+                  {service.hasAnimation && <ClashDetectionAnimation />}
                 </div>
               </div>
             </motion.div>
