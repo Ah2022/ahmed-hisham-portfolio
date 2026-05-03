@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import StatusIndicator from "./StatusIndicator";
+import BIMWireframeHero from "./BIMWireframeHero";
 
 const roles = [
   "BIM Automation Engineer",
@@ -11,59 +12,10 @@ const roles = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background - Animated BIM Wireframe */}
+      {/* Background - Custom BIM Wireframe Animation */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 w-full h-full opacity-20">
-          <svg
-            viewBox="0 0 800 600"
-            className="w-full h-full"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice"
-          >
-            <defs>
-              <style>{`
-                @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
-                @keyframes rotate3d { 
-                  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); } 
-                  100% { transform: rotateX(15deg) rotateY(360deg) rotateZ(5deg); } 
-                }
-                .structural { animation: fadeIn 2s ease-in-out 0s forwards; }
-                .mep { animation: fadeIn 2s ease-in-out 2s forwards; opacity: 0; }
-                .electrical { animation: fadeIn 2s ease-in-out 4s forwards; opacity: 0; }
-                .wireframe-container { animation: rotate3d 20s linear infinite; transform-origin: 400px 300px; }
-              `}</style>
-            </defs>
-            <g className="wireframe-container">
-              {/* Structural Frame - Blue */}
-              <g className="structural" stroke="#3B82F6" strokeWidth="2" fill="none">
-                <rect x="200" y="150" width="400" height="300" opacity="0.3"/>
-                <line x1="200" y1="200" x2="600" y2="200" opacity="0.5"/>
-                <line x1="200" y1="250" x2="600" y2="250" opacity="0.5"/>
-                <line x1="200" y1="300" x2="600" y2="300" opacity="0.5"/>
-                <line x1="200" y1="350" x2="600" y2="350" opacity="0.5"/>
-                <line x1="250" y1="150" x2="250" y2="450"/>
-                <line x1="350" y1="150" x2="350" y2="450"/>
-                <line x1="450" y1="150" x2="450" y2="450"/>
-                <line x1="550" y1="150" x2="550" y2="450"/>
-              </g>
-              {/* MEP Systems - Purple */}
-              <g className="mep" stroke="#8B5CF6" strokeWidth="3" fill="none" strokeLinecap="round">
-                <path d="M 220 180 Q 280 160, 340 180 Q 400 200, 460 180 Q 520 160, 580 180"/>
-                <path d="M 220 240 L 580 240"/>
-                <path d="M 230 220 Q 300 240, 370 220 Q 440 200, 510 220 Q 580 240, 600 260"/>
-                <path d="M 200 300 L 600 300"/>
-              </g>
-              {/* Electrical Systems - Pink */}
-              <g className="electrical" stroke="#EC4899" strokeWidth="2" fill="none" strokeDasharray="5,5">
-                <path d="M 210 200 L 210 400"/>
-                <path d="M 590 200 L 590 400"/>
-                <path d="M 300 150 L 300 450"/>
-                <path d="M 500 150 L 500 450"/>
-              </g>
-            </g>
-          </svg>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        <BIMWireframeHero />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
       </div>
 
       <div className="container relative z-10 pt-24 pb-16">
