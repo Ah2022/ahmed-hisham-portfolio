@@ -1,142 +1,46 @@
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
-import { Cpu, Layers, Brain, Search } from "lucide-react";
-import { useState, useEffect } from "react";
+import ServiceCard from "./ServiceCard";
+import { drawClash, drawAutomation, drawMEP, drawAI } from "@/lib/serviceAnimations";
 
 const services = [
   {
-    icon: Cpu,
+    id: "automation",
     title: "BIM Automation",
-    description:
-      "Custom Dynamo scripts and Python tools that automate repetitive BIM tasks — from model auditing to automated parameter population and schedule generation.",
+    desc: "Custom Dynamo scripts and Python tools that automate repetitive BIM tasks — model auditing to schedule generation.",
     tags: ["Dynamo", "Python", "Revit API"],
+    states: ["Input", "Processing", "Generating", "Output"],
+    stateColors: ["#4fc3f7", "#7f77dd", "#7f77dd", "#1d9e75"],
+    draw: drawAutomation,
   },
   {
-    icon: Layers,
+    id: "mep",
     title: "MEP BIM Modeling",
-    description:
-      "High-precision MEP modeling in Revit for HVAC, plumbing, fire protection, and electrical systems. LOD 300-400 models ready for fabrication.",
+    desc: "High-precision MEP modeling for HVAC, plumbing, fire protection, and electrical systems. LOD 300-400.",
     tags: ["Revit", "MEP", "LOD 400"],
+    states: ["HVAC", "Plumbing", "Fire", "Electrical"],
+    stateColors: ["#4fc3f7", "#26a69a", "#e24b4a", "#f59e0b"],
+    draw: drawMEP,
   },
   {
-    icon: Brain,
+    id: "ai",
     title: "AI + BIM Integration",
-    description:
-      "Leveraging machine learning and AI to predict clashes, optimize routing, and generate intelligent design alternatives within BIM workflows.",
+    desc: "Machine learning and AI to predict clashes, optimize routing, and generate intelligent design alternatives.",
     tags: ["AI/ML", "Optimization", "Prediction"],
+    states: ["Analyzing", "Predicting", "Optimizing", "Complete"],
+    stateColors: ["#7f77dd", "#7f77dd", "#1d9e75", "#1d9e75"],
+    draw: drawAI,
   },
   {
-    icon: Search,
+    id: "clash",
     title: "Clash Detection & Coordination",
-    description:
-      "Multi-discipline coordination using Navisworks and BIM 360. Zero-clash delivery through systematic detection, resolution, and verification workflows.",
+    desc: "Multi-discipline coordination — zero-clash delivery through systematic detection, resolution, and verification.",
     tags: ["Navisworks", "BIM 360", "IFC"],
-    hasAnimation: true,
+    states: ["Scanning", "Detected", "Resolving", "Resolved"],
+    stateColors: ["#4fc3f7", "#e24b4a", "#f59e0b", "#1d9e75"],
+    draw: drawClash,
   },
 ];
-
-function ClashDetectionAnimation() {
-  const [state, setState] = useState<"detected" | "resolving" | "resolved">("detected");
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setState((prev) => {
-        if (prev === "detected") return "resolving";
-        if (prev === "resolving") return "resolved";
-        return "detected";
-      });
-    }, 2000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="mt-4 p-4 rounded-lg bg-secondary/30 border border-border/50">
-      <svg
-        viewBox="0 0 300 150"
-        className="w-full h-auto"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <style>{`
-            @keyframes clashPulse { 0%, 100% { r: 6; } 50% { r: 8; } }
-            @keyframes resolveFlow { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
-            .clash-indicator { animation: clashPulse 0.6s ease-in-out infinite; }
-          `}</style>
-        </defs>
-
-        {/* Left Element - Pipe */}
-        <rect x="20" y="50" width="60" height="30" fill="#3B82F6" opacity="0.3" rx="4" />
-        <text x="50" y="70" fontSize="10" fill="#3B82F6" textAnchor="middle" fontWeight="bold">
-          Pipe
-        </text>
-
-        {/* Right Element - Duct */}
-        <rect x="220" y="50" width="60" height="30" fill="#8B5CF6" opacity="0.3" rx="4" />
-        <text x="250" y="70" fontSize="10" fill="#8B5CF6" textAnchor="middle" fontWeight="bold">
-          Duct
-        </text>
-
-        {/* Connection Line - Changes based on state */}
-        {state === "detected" && (
-          <>
-            <line x1="80" y1="65" x2="220" y2="65" stroke="#EF4444" strokeWidth="2" />
-            <circle cx="50" cy="65" r="6" fill="#EF4444" className="clash-indicator" />
-            <circle cx="250" cy="65" r="6" fill="#EF4444" className="clash-indicator" />
-            <text x="150" y="35" fontSize="11" fill="#EF4444" textAnchor="middle" fontWeight="bold">
-              CLASH DETECTED
-            </text>
-          </>
-        )}
-
-        {state === "resolving" && (
-          <>
-            <path
-              d="M 80 65 Q 150 40, 220 65"
-              stroke="#F59E0B"
-              strokeWidth="2"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <circle cx="50" cy="65" r="6" fill="#F59E0B" opacity="0.6" />
-            <circle cx="250" cy="65" r="6" fill="#F59E0B" opacity="0.6" />
-            <text x="150" y="35" fontSize="11" fill="#F59E0B" textAnchor="middle" fontWeight="bold">
-              RESOLVING...
-            </text>
-            <motion.circle
-              cx="150"
-              cy="65"
-              r="4"
-              fill="#F59E0B"
-              animate={{ cx: [80, 220] }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-            />
-          </>
-        )}
-
-        {state === "resolved" && (
-          <>
-            <line x1="80" y1="65" x2="220" y2="65" stroke="#22C55E" strokeWidth="2" />
-            <circle cx="50" cy="65" r="6" fill="#22C55E" />
-            <circle cx="250" cy="65" r="6" fill="#22C55E" />
-            <text x="150" y="35" fontSize="11" fill="#22C55E" textAnchor="middle" fontWeight="bold">
-              RESOLVED ✓
-            </text>
-          </>
-        )}
-      </svg>
-
-      {/* State Label */}
-      <div className="mt-3 text-center">
-        <span className="text-xs font-mono font-semibold">
-          {state === "detected" && <span className="text-red-400">Clash Detected</span>}
-          {state === "resolving" && <span className="text-amber-400">Resolving Conflict...</span>}
-          {state === "resolved" && <span className="text-green-400">Zero Clashes</span>}
-        </span>
-      </div>
-    </div>
-  );
-}
 
 export default function Services() {
   const { ref, inView } = useInView({ threshold: 0.1 });
@@ -167,36 +71,12 @@ export default function Services() {
         <div className="grid sm:grid-cols-2 gap-6">
           {services.map((service, i) => (
             <motion.div
-              key={service.title}
+              key={service.id}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              className="group p-6 sm:p-8 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-300 gradient-border"
             >
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/15 transition-colors">
-                  <service.icon className="w-5 h-5 text-primary" />
-                </div>
-                <div className="space-y-3 flex-1">
-                  <h3 className="text-lg font-sans font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground font-body leading-relaxed">
-                    {service.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-0.5 text-[10px] font-mono rounded bg-secondary text-secondary-foreground border border-border"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  {service.hasAnimation && <ClashDetectionAnimation />}
-                </div>
-              </div>
+              <ServiceCard {...service} />
             </motion.div>
           ))}
         </div>
