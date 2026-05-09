@@ -514,7 +514,7 @@ function ProjectCard({ project }: { project: ProjectCardData }) {
 
 export default function ProjectCards() {
   return (
-    <div className="space-y-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {projectsData.map((project: ProjectCardData) => (
         <ProjectCard key={project.id} project={project} />
       ))}
