@@ -31,7 +31,7 @@ const projectsData: ProjectCardData[] = [
     ],
     challenge: {
       title: 'Challenge → solution',
-      text: 'Operating theatre zones had critical MEP/structure overlay conflicts that manual coordination couldn\'t clear fast enough for the IFC deadline. Built a Navisworks automation workflow combined with Dynamo rerouting scripts — cleared all critical clashes and delivered zero-clash IFC on schedule.',
+      text: 'Worked as a Plumbing BIM Modeler responsible for developing and coordinating plumbing systems using Autodesk Revit within a multidisciplinary BIM environment. Solving critical MEP/structure overlay conflicts that manual coordination couldn\'t clear fast enough for the deadline. Built an automation workflow combined with Dynamo rerouting scripts — cleared all critical clashes and delivered zero-clash Models on schedule.',
     },
     steps: [
       { icon: '📦', label: 'LOD 400 modeling' },
@@ -58,7 +58,7 @@ const projectsData: ProjectCardData[] = [
     ],
     challenge: {
       title: 'Challenge → solution',
-      text: 'Vertical MEP shafts across 50+ floors created compounding routing conflicts at every transfer level — a coordination problem that scales exponentially with height. Implemented a level-by-level Navisworks federated model workflow with BIM 360 issue tracking, reducing coordination cycle time per floor by managing discipline clashes in parallel rather than sequentially.',
+      text: 'Contributed to the BIM coordination and plumbing modeling process within an MEP consultant environment. For Vertical MEP shafts across 50+ floors created compounding routing conflicts at every transfer level — a coordination problem that scales exponentially with height. Implemented a level-by-level Navisworks federated model workflow, reducing coordination cycle time per floor by managing discipline clashes in parallel rather than sequentially.',
     },
     steps: [
       { icon: '📐', label: 'Federated model setup' },
