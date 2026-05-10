@@ -22,7 +22,7 @@ const projectsData: ProjectCardData[] = [
     title: 'SMC Hospital — DB-142',
     subtitle: 'DAR International · Al Wadi District, Riyadh, KSA',
     badge: { text: 'MEP coordination', color: 'rgba(41,212,255,0.12)' },
-    status: { text: 'Delivered Oct 2024', color: 'rgba(29,158,117,0.12)', dot: '#1d9e75' },
+    status: { text: 'Ongoing', color: 'rgba(245,158,11,0.1)', dot: '#ba7517' },
     type: { text: 'LEED v4 Gold', color: 'var(--color-background-success)' },
     kpis: [
       { value: '69,145', label: 'm² facility area' },

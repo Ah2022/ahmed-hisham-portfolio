@@ -23,7 +23,7 @@ const services = [
     number: "02",
     title: "BIM automation",
     description:
-      "Custom Dynamo scripts and Python tools that eliminate repetitive BIM tasks — model auditing, parameter population, schedule generation, and QA in minutes, not days.",
+      "Custom Dynamo scripts and Python tools that eliminate repetitive BIM tasks — model auditing, parameter population, schedule generation, and QA in minutes, not days, eg: MEPSizer — Auto Pipe/Duct Sizer",
     tools: ["Dynamo", "Python", "Revit API", "pyRevit"],
     deliverables: ["Custom scripts", "Model auditor", "Auto-schedules", "QA pipeline"],
     outcome: "Days → 30 min QA",
@@ -38,7 +38,7 @@ const services = [
     number: "03",
     title: "MEP BIM modeling",
     description:
-      "High-precision HVAC, plumbing, fire protection, and electrical modeling in Revit. LOD 300–400 models built for fabrication and LEED certification.",
+      "High-precision HVAC, Plumbing and Fire Protection, modeling in Revit. LOD 300–400 models built for fabrication and LEED certification.",
     tools: ["Revit MEP", "AutoCAD", "LOD 400", "LEED"],
     deliverables: ["HVAC systems", "Plumbing design", "Fire protection", "Electrical layout"],
     outcome: "69,145 m² delivered",
@@ -53,8 +53,8 @@ const services = [
     number: "04",
     title: "AI + BIM integration",
     description:
-      "Machine learning pipelines that predict clashes before they happen, optimize MEP routing, and generate intelligent design alternatives — cutting coordination time by 60%.",
-    tools: ["AI / ML", "Python", "Optimization", "Prediction"],
+      "AI Clash Addin That Make:\n🔵 Full Scan the entire model With Choosing Target Level option.\n🔴 Generate RFIs and Creates Reports Using GPT-4o.\n🟢 Live Monitor Clashes in Real-time While Modeling.\n🟣Dashboard For Showing Analytics After The Full Scan Within Revit.",
+    tools: ["AI", "Python", "Real-time Monitoring", "Prediction"],
     deliverables: ["Clash prediction model", "Route optimizer", "Automation pipeline", "AI clash report"],
     outcome: "60% faster coordination",
     icon: Cpu,
