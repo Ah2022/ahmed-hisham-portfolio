@@ -2,7 +2,7 @@
 
 A modern, high-performance personal portfolio website for **Ahmed Hisham**, a BIM Automation Engineer, MEP BIM Modeler, AI + BIM Integration Specialist, and MEP Design & Clash Detection Specialist. Built with React 19, Tailwind CSS 4, and Framer Motion, featuring a JetBrains-inspired dark aesthetic.
 
-> **Live Site:** [ahmedfolio-dtesviwy.manus.space](https://ahmedfolio-dtesviwy.manus.space)
+> **Live Site:** [Ahmed Hisham BIM Portfolio](https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site)
 
 ---
 
@@ -96,8 +96,8 @@ The website uses a custom dark theme with the following design tokens:
 
 ```bash
 # Clone the repository
-git clone https://github.com/AH2022/Ahmed-Hisham-MEP-Portfolio.git
-cd Ahmed-Hisham-MEP-Portfolio
+git clone https://github.com/Ah2022/ahmed-hisham-portfolio.git
+cd ahmed-hisham-portfolio
 
 # Install dependencies
 pnpm install
@@ -137,3 +137,9 @@ One of Africa's tallest skyscrapers by Nile Developments. Comprehensive MEP coor
 ## License
 
 This project is proprietary. All rights reserved by Ahmed Hisham.
+
+## Interactive portfolio upgrade
+
+Five BIM hero modes, an interactive portrait, evidence-linked metrics, numbered command navigation, project filters, expandable experience and automation tools, and four interactive project case-study routes. Diagrams are illustrative; project captures can be supplied separately.
+
+Use `pnpm build:site` for static hosting. Photo and CV sources are stored losslessly in `source-assets` and restored automatically on installation/build by `scripts/materialize-assets.mjs`.

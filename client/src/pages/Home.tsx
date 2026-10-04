@@ -1,22 +1,26 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import AutomationPipeline from "@/components/AutomationPipeline";
+import MetricRail from "@/components/MetricRail";
 import Projects from "@/components/Projects";
+import AutomationTools from "@/components/AutomationTools";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
+import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="portfolio-page">
       <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <AutomationPipeline />
-      <Projects />
-      <Contact />
+      <main id="main-content" tabIndex={-1}>
+        <Hero />
+        <MetricRail />
+        <Projects />
+        <AutomationTools />
+        <ExperienceTimeline />
+        <Services />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

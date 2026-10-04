@@ -1,103 +1,167 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import InteractiveLogo from "./InteractiveLogo";
-import StatusIndicator from "./StatusIndicator";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "wouter";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+const sections = [
+  { id: "hero", label: "Overview" },
+  { id: "projects", label: "Projects" },
+  { id: "automation-tools", label: "Automation" },
+  { id: "experience", label: "Experience" },
+  { id: "services", label: "Services" },
+  { id: "contact", label: "Contact" },
 ];
-
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [location] = useLocation();
+  const [active, setActive] = useState("hero");
+  const [progress, setProgress] = useState(0);
+  const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const onHome = location === "/";
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    setOpen(false);
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(
+        height > 0
+          ? Math.min(100, Math.max(0, (window.scrollY / height) * 100))
+          : 0
+      );
+      if (!onHome) {
+        setActive("projects");
+        return;
+      }
+      let current = "hero";
+      for (const section of sections) {
+        const element = document.getElementById(section.id);
+        if (element && element.getBoundingClientRect().top <= 170)
+          current = section.id;
+      }
+      if (height > 0 && window.scrollY >= height - 4) current = "contact";
+      setActive(current);
+    };
+    const requestUpdate = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    const observer = new ResizeObserver(requestUpdate);
+    observer.observe(document.body);
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
+  }, [location, onHome]);
+
+  useEffect(() => {
+    if (!open) return;
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    const outside = (event: PointerEvent) => {
+      if (
+        event.target instanceof Node &&
+        !navRef.current?.contains(event.target)
+      )
+        setOpen(false);
+    };
+    document.addEventListener("keydown", escape);
+    document.addEventListener("pointerdown", outside);
+    return () => {
+      document.removeEventListener("keydown", escape);
+      document.removeEventListener("pointerdown", outside);
+    };
+  }, [open]);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="flex items-center gap-3">
-          <InteractiveLogo />
-          <span className="hidden sm:inline font-sans text-sm font-medium text-foreground/80">
-            Ahmed Hisham
-          </span>
-        </a>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          ))}
+    <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <nav className="command-nav" aria-label="Main navigation" ref={navRef}>
+        <div className="command-bar">
           <a
-            href="#contact"
-            className="px-4 py-2 text-sm font-medium rounded-lg bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-all duration-200"
+            className="command-brand"
+            href={onHome ? "#hero" : "/#hero"}
+            aria-label="Ahmed Hisham overview"
           >
-            Let's Talk
+            AH<span>/ ENGINEERING</span>
           </a>
-        </div>
-
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          aria-label="Toggle menu"
-        >
-          <span className={`block w-5 h-0.5 bg-foreground transition-all duration-200 ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-5 h-0.5 bg-foreground transition-all duration-200 ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-5 h-0.5 bg-foreground transition-all duration-200 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
-        >
-          <div className="container py-4 flex flex-col gap-3">
-            {navLinks.map((link) => (
+          <div className="command-links">
+            {sections.map((section, index) => (
               <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground py-2"
+                key={section.id}
+                href={`${onHome ? "" : "/"}#${section.id}`}
+                aria-current={
+                  active === section.id
+                    ? onHome
+                      ? "location"
+                      : "page"
+                    : undefined
+                }
               >
-                {link.label}
+                <span>0{index + 1}</span>
+                {section.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMobileOpen(false)}
-              className="px-4 py-2 text-sm font-medium rounded-lg bg-primary/10 text-primary border border-primary/20 text-center"
-            >
-              Let's Talk
-            </a>
           </div>
-        </motion.div>
-      )}
-    </motion.nav>
+          <a
+            className="command-contact"
+            href={`${onHome ? "" : "/"}#contact`}
+            aria-label="Get in touch"
+          >
+            <ArrowUpRight size={18} />
+          </a>
+          <button
+            className="command-menu-toggle"
+            type="button"
+            ref={toggleRef}
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={open}
+            aria-controls="mobile-command-menu"
+            onClick={() => setOpen(value => !value)}
+          >
+            {open ? <X size={21} /> : <Menu size={21} />}
+          </button>
+        </div>
+        <div
+          className="command-progress"
+          role="progressbar"
+          aria-label="Page reading progress"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round(progress)}
+        >
+          <span style={{ width: `${progress}%` }} />
+        </div>
+        <div
+          id="mobile-command-menu"
+          className="mobile-command-menu"
+          hidden={!open}
+        >
+          {sections.map((section, index) => (
+            <a
+              key={section.id}
+              href={`${onHome ? "" : "/"}#${section.id}`}
+              aria-current={active === section.id ? "location" : undefined}
+              onClick={() => setOpen(false)}
+            >
+              <span>0{index + 1}</span>
+              {section.label}
+              <ArrowUpRight size={16} />
+            </a>
+          ))}
+        </div>
+      </nav>
+    </>
   );
 }
