@@ -9,7 +9,10 @@
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postinstall": "node scripts/materialize-assets.mjs",
+    "prebuild": "node scripts/materialize-assets.mjs",
+    "build:site": "node scripts/materialize-assets.mjs && vite build --outDir ../build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -23,18 +23,9 @@ Overview/hero → linked metric rail → Projects → Automation → Experience 
 
 The diagrams and comparison issues are explicitly illustrative. They are not real project captures, live Revit data or validated rerouting solutions. Actual project media slots are ready for the next content pass. Tool relationships describe relevant capabilities, not unverified project-specific deployment.
 
-## Previews
-
-- [Projects](projects.png)
-- [Case-study explorer](case-study-explorer.png)
-- [Experience](experience.png)
-- [Mobile layout](mobile.png)
-
-Section captures hide the fixed navigation so the section itself is unobstructed.
-
 ## Validation
 
-TypeScript and production Vite/server builds passed. Existing analytics environment and bundle-size warnings remain. Chromium checks passed for metric destinations, all filters, expandable experience/tool entries, active command navigation, reading progress, all four routes with direct refresh, system/level/annotation/comparison controls, return navigation, mobile touch/Escape focus behaviour and reduced motion. All four case studies and the homepage passed overflow checks at 320, 390, 768 and 1440 px. No browser runtime exceptions were observed.
+TypeScript and production Vite/server builds passed. A bundle-size warning remains; undefined analytics configuration was removed for publication. Chromium checks passed for metric destinations, all filters, expandable experience/tool entries, active command navigation, reading progress, all four routes with direct refresh, system/level/annotation/comparison controls, return navigation, mobile touch/Escape focus behaviour and reduced motion. All four case studies and the homepage passed overflow checks at 320, 390, 768 and 1440 px. No browser runtime exceptions were observed.
 
 ## Media/materials needed
 
@@ -54,4 +45,4 @@ For stronger interactive evidence, provide a small publishable IFC/GLB excerpt a
 
 `client/src/data/portfolio.ts` owns project, tool and experience records. No unverified clash counts, delivery guarantees or time-saving percentages are displayed. ENVI's LOD is marked unspecified until confirmed.
 
-Work remains local on `feat/phase-2-portfolio-layout`, based on the Phase A commit. It has not been published.
+Source publication and public hosting are configured for the upgraded portfolio.

@@ -110,3 +110,9 @@ temp/
 
 # Manus version file (auto-generated, not part of source)
 client/public/__manus__/version.json
+
+# Materialized from source-assets during install/build
+client/public/images/ahmed-hisham.png
+client/public/documents/ahmed-hisham-cv.pdf
+docs/phase-a/*.png
+docs/phase-2/*.png

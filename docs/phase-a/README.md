@@ -6,12 +6,6 @@ The portrait uses the supplied photo with pointer tilt, a moving highlight, and 
 
 The four CTAs link to existing sections or download the supplied CV, now bundled with the site. Both photo and CV are served from `client/public`.
 
-## Previews
-
-![Desktop MEP mode](desktop.png)
-
-[Mobile Automation mode](mobile.png)
-
 ## Validation
 
 - TypeScript: `pnpm check` passed.
