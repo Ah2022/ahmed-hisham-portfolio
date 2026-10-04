@@ -2,7 +2,7 @@
 
 A modern, high-performance personal portfolio website for **Ahmed Hisham**, a BIM Automation Engineer, MEP BIM Modeler, AI + BIM Integration Specialist, and MEP Design & Clash Detection Specialist. Built with React 19, Tailwind CSS 4, and Framer Motion, featuring a JetBrains-inspired dark aesthetic.
 
-> **Live Site:** [Ahmed Hisham BIM Portfolio](https://ahmed-hisham-bim-portfolio.blush-lion-9190.chatgpt.site)
+> **Live Site:** [Ahmed Hisham BIM Portfolio](https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site)
 
 ---
 
