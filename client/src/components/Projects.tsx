@@ -1,37 +1,43 @@
-import { motion } from "framer-motion";
-import { useInView } from "@/hooks/useInView";
+import { useState } from "react";
+import SectionHeading from "./SectionHeading";
 import ProjectCards from "./ProjectCards";
-
+export const projectFilters = [
+  "All",
+  "Healthcare",
+  "High-rise",
+  "Industrial",
+  "Hospitality",
+  "Automation Tools",
+] as const;
+export type ProjectFilter = (typeof projectFilters)[number];
 export default function Projects() {
-  const { ref, inView } = useInView({ threshold: 0.1 });
-
+  const [filter, setFilter] = useState<ProjectFilter>("All");
   return (
-    <section id="projects" className="py-24 sm:py-32 relative" ref={ref}>
+    <section id="projects" className="portfolio-section">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+        <SectionHeading
+          number="02"
+          label="SELECTED WORK"
+          title="Engineering in context."
+          description="Explore four professional project contributions and the personal tools that support BIM workflows."
+        />
+        <div
+          className="filter-bar"
+          role="group"
+          aria-label="Project categories"
         >
-          <span className="text-xs font-mono font-medium text-primary uppercase tracking-widest">
-            Portfolio
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-sans font-bold text-foreground mt-3 mb-4">
-            Featured <span className="gradient-text-blue">Projects</span>
-          </h2>
-          <p className="text-muted-foreground font-body">
-            Landmark projects where precision engineering meets intelligent coordination.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <ProjectCards />
-        </motion.div>
+          {projectFilters.map(category => (
+            <button
+              key={category}
+              type="button"
+              aria-pressed={filter === category}
+              onClick={() => setFilter(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+        <ProjectCards filter={filter} />
       </div>
     </section>
   );
