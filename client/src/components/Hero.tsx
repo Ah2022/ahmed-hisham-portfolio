@@ -39,11 +39,25 @@ export default function Hero() {
           <div className="hero-eyebrow">
             <span /> CAIRO, EGYPT · BIM & AUTOMATION
           </div>
-          <h1>
-            Ahmed
-            <br />
-            <span>Hisham.</span>
-          </h1>
+          <div className="hero-identity">
+            <svg
+              className="hero-brand-logo"
+              viewBox="393 775 662 499"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <image
+                href="/images/ahmed-hisham-logo.png"
+                width="1448"
+                height="2048"
+              />
+            </svg>
+            <h1>
+              Ahmed
+              <br />
+              <span>Hisham.</span>
+            </h1>
+          </div>
           <p className="hero-role">
             BIM Engineer <span>&</span>
             <br className="hero-role-break" /> Revit Add-in Developer
