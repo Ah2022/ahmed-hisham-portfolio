@@ -1,0 +1,735 @@
+.automation-signature {
+  --automation-accent: #5eead4;
+}
+.engine-selector {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 32px 0 18px;
+}
+.engine-selector button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+  scroll-margin-top: 100px;
+}
+.engine-selector button span,
+.engine-eyebrow,
+.scene-toolbar > span {
+  font:
+    10px/1.5 "JetBrains Mono",
+    monospace;
+  letter-spacing: 0.12em;
+  color: var(--muted-foreground);
+}
+.engine-selector button strong {
+  font-size: 17px;
+}
+.engine-selector button small {
+  color: var(--muted-foreground);
+}
+.engine-selector button[aria-pressed="true"] {
+  border-color: var(--automation-accent);
+  background: color-mix(in srgb, var(--automation-accent) 8%, var(--card));
+  box-shadow: inset 0 3px var(--automation-accent);
+}
+.engine-workspace {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--card);
+}
+.engine-header {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 30px;
+}
+.engine-header h3 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+.engine-header p {
+  max-width: 660px;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.engine-eyebrow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--automation-accent, #5eead4);
+}
+.engine-status {
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  font-size: 11px;
+  padding: 8px 12px;
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+}
+.workflow-nodes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0 30px 30px;
+  list-style: none;
+  margin: 0;
+}
+.workflow-nodes li {
+  position: relative;
+  min-width: 0;
+}
+.workflow-nodes button {
+  width: 100%;
+  height: 100%;
+  min-height: 116px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  background: var(--background);
+}
+.workflow-nodes button span {
+  font:
+    10px "JetBrains Mono",
+    monospace;
+  color: var(--muted-foreground);
+}
+.workflow-nodes button strong {
+  font-size: 15px;
+}
+.workflow-nodes button svg {
+  align-self: flex-end;
+  color: var(--automation-accent);
+}
+.workflow-nodes button[aria-pressed="true"] {
+  border-color: var(--automation-accent);
+  background: color-mix(
+    in srgb,
+    var(--automation-accent) 7%,
+    var(--background)
+  );
+}
+.workflow-connector {
+  position: absolute;
+  right: -13px;
+  top: 46px;
+  z-index: 1;
+  color: var(--automation-accent);
+  background: var(--card);
+  font-size: 17px;
+}
+.workflow-nodes li:nth-child(3n) .workflow-connector {
+  display: none;
+}
+.workflow-inspector {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  border-top: 1px solid var(--border);
+  background: color-mix(
+    in srgb,
+    var(--automation-accent) 4%,
+    var(--background)
+  );
+  padding: 30px;
+  gap: 40px;
+}
+.workflow-inspector h4 {
+  font-size: 26px;
+  margin: 16px 0;
+}
+.workflow-inspector p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+.workflow-inspector a {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--automation-accent);
+  font-size: 13px;
+  margin-top: 24px;
+}
+.workflow-inspector dl {
+  margin: 0;
+  display: grid;
+  gap: 15px;
+}
+.workflow-inspector dl > div {
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--border);
+}
+.workflow-inspector dt,
+.element-inspector dt {
+  font:
+    10px/1.5 "JetBrains Mono",
+    monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted-foreground);
+  margin-bottom: 6px;
+}
+.workflow-inspector dd {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.clash-section {
+  --automation-accent: #5eead4;
+}
+.demo-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.demo-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  border-right: 1px solid var(--border);
+  background: var(--card);
+}
+.demo-metrics > div:last-child {
+  border: 0;
+}
+.demo-metrics strong {
+  font:
+    30px/1 "JetBrains Mono",
+    monospace;
+  color: #5eead4;
+}
+.demo-metrics span {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.estimate-note {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  line-height: 1.8;
+  margin: 14px 0 24px;
+}
+.clash-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(250px, 1fr);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card);
+}
+.clash-visual-panel {
+  min-width: 0;
+}
+.scene-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.scene-toolbar > div {
+  display: flex;
+  gap: 4px;
+}
+.clash-section button {
+  min-height: 40px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  border-radius: 7px;
+  font-size: 12px;
+  padding: 9px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.clash-section button[aria-pressed="true"] {
+  border-color: #5eead4;
+  background: #5eead414;
+}
+.clash-section button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.bim-scene svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.sim-element {
+  cursor: grab;
+  touch-action: none;
+}
+.sim-element.beam {
+  cursor: pointer;
+  touch-action: pan-y;
+}
+.sim-element:active {
+  cursor: grabbing;
+}
+.sim-element:focus {
+  outline: none;
+}
+.sim-element:focus-visible rect:nth-child(2) {
+  stroke: white;
+  stroke-width: 4;
+}
+.scene-instructions,
+.before-notice {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  line-height: 1.8;
+  margin: 16px;
+}
+.before-notice {
+  color: #fbbf24;
+  border-left: 2px solid #fbbf24;
+  padding-left: 12px;
+}
+.elevation-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+.elevation-strip span {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid;
+  padding-left: 10px;
+  font:
+    12px/1.8 "JetBrains Mono",
+    monospace;
+}
+.elevation-strip strong {
+  font-size: 10px;
+  color: var(--muted-foreground);
+}
+.elevation-strip small {
+  font-size: 10px;
+  color: var(--muted-foreground);
+}
+.element-inspector {
+  border-left: 1px solid var(--border);
+  padding: 22px;
+  min-width: 0;
+}
+.element-inspector > label {
+  display: block;
+  margin: 18px 0 8px;
+  font-size: 12px;
+}
+.element-inspector select,
+.element-inspector input[type="number"] {
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  min-height: 40px;
+  padding: 8px;
+  width: 100%;
+  font-size: 12px;
+}
+.element-inspector dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+.element-inspector dd {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.element-inspector fieldset {
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+}
+.element-inspector legend {
+  font-size: 12px;
+  padding: 0 6px;
+}
+.element-inspector fieldset label {
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted-foreground);
+}
+.element-inspector input[type="range"] {
+  width: 100%;
+  accent-color: #5eead4;
+  min-height: 28px;
+}
+.element-inspector fieldset:disabled {
+  opacity: 0.5;
+}
+.nudge-controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+.demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+.coordination-command-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+}
+.clash-section .resolve-button {
+  background: #5eead4;
+  color: #071a1b;
+  border-color: #5eead4;
+  font-weight: 700;
+}
+.coordination-command-bar [role="status"] {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  flex: 1;
+  min-width: 200px;
+}
+.coordination-results {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+}
+.coordination-results > section {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  background: var(--card);
+  min-width: 0;
+}
+.coordination-results h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+}
+.coordination-results h3 > span {
+  margin-left: auto;
+  color: #5eead4;
+  font:
+    24px "JetBrains Mono",
+    monospace;
+}
+.coordination-results p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+  margin: 14px 0;
+}
+.clash-list-panel ol,
+.issue-store-panel ul {
+  list-style: none;
+  margin: 18px 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.clash-list-panel li button {
+  display: grid;
+  grid-template-columns: 25px 1fr auto;
+  text-align: left;
+  justify-content: initial;
+  width: 100%;
+  padding: 12px;
+}
+.clash-list-panel li button > span:first-child {
+  color: var(--muted-foreground);
+  font:
+    11px "JetBrains Mono",
+    monospace;
+}
+.clash-list-panel li button strong {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.clash-list-panel li button small {
+  grid-column: 2/4;
+  color: var(--muted-foreground);
+}
+.severity {
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+.severity.high {
+  background: #fb718520;
+  color: #fda4af;
+}
+.severity.medium {
+  background: #fbbf2420;
+  color: #fde68a;
+}
+.issue-store-panel li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.issue-store-panel li strong {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.issue-store-panel li span {
+  color: #5eead4;
+  font:
+    11px "JetBrains Mono",
+    monospace;
+}
+.issue-store-panel > small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  margin-top: 12px;
+}
+.clash-section .all-clear {
+  color: #5eead4;
+}
+.coordination-report {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  background: var(--card);
+}
+.coordination-report summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 28px;
+}
+.coordination-report p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 18px 0;
+  color: var(--muted-foreground);
+}
+.report-table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 20px 0;
+}
+.coordination-report table {
+  border-collapse: collapse;
+  min-width: 600px;
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+}
+.coordination-report caption {
+  text-align: left;
+  color: var(--muted-foreground);
+  padding-bottom: 14px;
+}
+.coordination-report td,
+.coordination-report th {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.automation-signature button:focus-visible,
+.clash-section button:focus-visible,
+.clash-section select:focus-visible,
+.clash-section input:focus-visible,
+.coordination-report summary:focus-visible {
+  outline: 2px solid #5eead4;
+  outline-offset: 4px;
+}
+.automation-signature button,
+.clash-section button {
+  cursor: pointer;
+}
+.clash-section .evidence-note {
+  margin-top: 20px;
+}
+@media (min-width: 1200px) {
+  .workflow-nodes {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .workflow-nodes li:nth-child(3n) .workflow-connector {
+    display: block;
+  }
+  .workflow-nodes li:last-child .workflow-connector {
+    display: none;
+  }
+  .workflow-nodes button {
+    padding: 15px;
+    min-height: 145px;
+  }
+  .workflow-nodes button strong {
+    font-size: 13px;
+  }
+  .workflow-connector {
+    right: -12px;
+  }
+}
+@media (max-width: 900px) {
+  .engine-selector {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .engine-header {
+    flex-direction: column;
+  }
+  .workflow-inspector {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .clash-workspace {
+    grid-template-columns: 1fr;
+  }
+  .element-inspector {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+  .element-inspector fieldset {
+    grid-template-columns: 1fr 1fr;
+  }
+  .element-inspector fieldset label:last-of-type {
+    grid-column: 1/-1;
+  }
+  .coordination-results {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 540px) {
+  .engine-selector {
+    gap: 8px;
+  }
+  .engine-selector button {
+    padding: 15px 12px;
+    gap: 10px;
+  }
+  .engine-selector button strong {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+  .engine-selector button span {
+    font-size: 9px;
+  }
+  .engine-header,
+  .workflow-inspector {
+    padding: 22px;
+  }
+  .engine-header h3 {
+    font-size: 24px;
+  }
+  .engine-status {
+    font-size: 10px;
+    flex-shrink: 1;
+  }
+  .workflow-nodes {
+    grid-template-columns: 1fr;
+    padding: 0 22px 22px;
+    gap: 12px;
+  }
+  .workflow-nodes button {
+    min-height: 78px;
+    padding: 14px;
+    display: grid;
+    grid-template-columns: 1fr 24px;
+    gap: 7px;
+  }
+  .workflow-nodes button span,
+  .workflow-nodes button strong {
+    grid-column: 1;
+  }
+  .workflow-nodes button svg {
+    grid-column: 2;
+    grid-row: 1/3;
+  }
+  .workflow-nodes .workflow-connector,
+  .workflow-nodes li:nth-child(3n) .workflow-connector {
+    display: none;
+  }
+  .demo-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  .demo-metrics > div {
+    padding: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .demo-metrics > div:nth-child(2) {
+    border-right: 0;
+  }
+  .demo-metrics > div:nth-child(3) {
+    border-bottom: 0;
+  }
+  .demo-metrics strong {
+    font-size: 24px;
+  }
+  .scene-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .scene-toolbar > div {
+    width: 100%;
+  }
+  .scene-toolbar button {
+    flex: 1;
+  }
+  .scene-instructions {
+    font-size: 11px;
+  }
+  .element-inspector {
+    padding: 18px;
+  }
+  .coordination-results > section {
+    padding: 18px;
+  }
+  .clash-list-panel li button {
+    grid-template-columns: 18px 1fr auto;
+    gap: 7px;
+  }
+  .clash-list-panel li button strong {
+    font-size: 10px;
+  }
+  .coordination-command-bar [role="status"] {
+    flex-basis: 100%;
+  }
+  .coordination-report {
+    padding: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .engine-selector button {
+    transition: none;
+  }
+}
