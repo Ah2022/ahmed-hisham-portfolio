@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import MetricRail from "@/components/MetricRail";
 import Projects from "@/components/Projects";
 import AutomationTools from "@/components/AutomationTools";
+import ClashDetectionDemo from "@/components/ClashDetectionDemo";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
@@ -17,6 +18,7 @@ export default function Home() {
         <MetricRail />
         <Projects />
         <AutomationTools />
+        <ClashDetectionDemo />
         <ExperienceTimeline />
         <Services />
         <Contact />
