@@ -1,190 +1,141 @@
-import { motion } from "framer-motion";
-import { useInView } from "@/hooks/useInView";
-import { ArrowRight, Database, Zap, FileText } from "lucide-react";
-
-const pipelineSteps = [
-  { icon: Database, label: "Revit Model", color: "#3B82F6" },
-  { icon: Zap, label: "Python Script", color: "#8B5CF6" },
-  { icon: FileText, label: "Output", color: "#10B981" },
-];
+import { useEffect, useState, type CSSProperties } from "react";
+import { ArrowDownRight, ArrowUpRight, Workflow } from "lucide-react";
+import { automationWorkflows } from "@/data/automationWorkflows";
+import SectionHeading from "./SectionHeading";
+import "./automation.css";
 
 export default function AutomationPipeline() {
-  const { ref, inView } = useInView({ threshold: 0.2 });
-
+  const [toolIndex, setToolIndex] = useState(0);
+  const [nodeIndex, setNodeIndex] = useState(0);
+  useEffect(() => {
+    const followHash = () => {
+      const index = automationWorkflows.findIndex(
+        t => `#tool-${t.id}` === window.location.hash
+      );
+      if (index >= 0) {
+        setToolIndex(index);
+        setNodeIndex(0);
+      }
+    };
+    followHash();
+    window.addEventListener("hashchange", followHash);
+    return () => window.removeEventListener("hashchange", followHash);
+  }, []);
+  const tool = automationWorkflows[toolIndex];
+  const node = tool.nodes[nodeIndex];
   return (
-    <section id="automation-tools" className="py-24 sm:py-32 relative" ref={ref}>
+    <section
+      id="automation-tools"
+      className="portfolio-section section-alt automation-signature"
+      style={{ "--automation-accent": tool.color } as CSSProperties}
+    >
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+        <SectionHeading
+          number="03"
+          label="AUTOMATION / ENGINEERING LOGIC"
+          title="From model data to engineering decisions."
+          description="Inspect the workflow behind each engine. Select a tool, then open a stage to see its inputs, outputs and engineering purpose."
+        />
+        <div
+          className="engine-selector"
+          role="group"
+          aria-label="Automation tool selector"
         >
-          <span className="text-xs font-mono font-medium text-primary uppercase tracking-widest">
-            Automation Tools
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-sans font-bold text-foreground mt-3 mb-4">
-            AI-Powered <span className="gradient-text">Workflow Pipeline</span>
-          </h2>
-          <p className="text-muted-foreground font-body">
-            Watch how your BIM data transforms through intelligent automation — from model to insights in seconds.
-          </p>
-        </motion.div>
-
-        {/* Pipeline Visualization */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="p-8 rounded-xl bg-card border border-border">
-            {/* SVG Pipeline */}
-            <svg
-              viewBox="0 0 800 300"
-              className="w-full h-auto mb-8"
-              xmlns="http://www.w3.org/2000/svg"
+          {automationWorkflows.map((t, i) => (
+            <button
+              id={`tool-${t.id}`}
+              key={t.id}
+              type="button"
+              aria-pressed={i === toolIndex}
+              aria-controls="engine-workspace"
+              onClick={() => {
+                setToolIndex(i);
+                setNodeIndex(0);
+              }}
             >
-              <defs>
-                <style>{`
-                  @keyframes flowData {
-                    0% { offset-distance: 0%; }
-                    100% { offset-distance: 100%; }
-                  }
-                  @keyframes pulse {
-                    0%, 100% { r: 6; opacity: 1; }
-                    50% { r: 8; opacity: 0.6; }
-                  }
-                  .data-packet { animation: flowData 3s linear infinite; }
-                  .node-pulse { animation: pulse 2s ease-in-out infinite; }
-                `}</style>
-              </defs>
-
-              {/* Nodes */}
-              <g>
-                {/* Revit Model Node */}
-                <circle cx="100" cy="150" r="40" fill="#3B82F6" opacity="0.2" />
-                <circle cx="100" cy="150" r="30" fill="none" stroke="#3B82F6" strokeWidth="2" />
-                <text x="100" y="155" fontSize="20" textAnchor="middle" fill="#3B82F6" fontWeight="bold">
-                  📦
-                </text>
-
-                {/* Python Script Node */}
-                <circle cx="400" cy="150" r="40" fill="#8B5CF6" opacity="0.2" />
-                <circle cx="400" cy="150" r="30" fill="none" stroke="#8B5CF6" strokeWidth="2" />
-                <text x="400" y="155" fontSize="20" textAnchor="middle" fill="#8B5CF6" fontWeight="bold">
-                  ⚙️
-                </text>
-
-                {/* Output Node */}
-                <circle cx="700" cy="150" r="40" fill="#10B981" opacity="0.2" />
-                <circle cx="700" cy="150" r="30" fill="none" stroke="#10B981" strokeWidth="2" />
-                <text x="700" y="155" fontSize="20" textAnchor="middle" fill="#10B981" fontWeight="bold">
-                  📊
-                </text>
-              </g>
-
-              {/* Connection Lines */}
-              <g stroke="#94A3B8" strokeWidth="2" fill="none" strokeDasharray="5,5">
-                <line x1="140" y1="150" x2="360" y2="150" />
-                <line x1="440" y1="150" x2="660" y2="150" />
-              </g>
-
-              {/* Animated Data Packets */}
-              <g>
-                {/* Packet 1 */}
-                <motion.circle
-                  cx="100"
-                  cy="150"
-                  r="6"
-                  fill="#3B82F6"
-                  animate={{ cx: [100, 400] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className="data-packet"
-                />
-                {/* Packet 2 */}
-                <motion.circle
-                  cx="100"
-                  cy="150"
-                  r="6"
-                  fill="#8B5CF6"
-                  animate={{ cx: [100, 400] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1 }}
-                  className="data-packet"
-                />
-                {/* Packet 3 */}
-                <motion.circle
-                  cx="400"
-                  cy="150"
-                  r="6"
-                  fill="#10B981"
-                  animate={{ cx: [400, 700] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className="data-packet"
-                />
-                {/* Packet 4 */}
-                <motion.circle
-                  cx="400"
-                  cy="150"
-                  r="6"
-                  fill="#10B981"
-                  animate={{ cx: [400, 700] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1 }}
-                  className="data-packet"
-                />
-              </g>
-
-              {/* Labels */}
-              <text x="100" y="210" fontSize="14" textAnchor="middle" fill="#E2E8F0" fontWeight="bold">
-                Revit Model
-              </text>
-              <text x="400" y="210" fontSize="14" textAnchor="middle" fill="#E2E8F0" fontWeight="bold">
-                Python Script
-              </text>
-              <text x="700" y="210" fontSize="14" textAnchor="middle" fill="#E2E8F0" fontWeight="bold">
-                Output
-              </text>
-            </svg>
-
-            {/* Pipeline Steps */}
-            <div className="grid sm:grid-cols-3 gap-4">
-              {pipelineSteps.map((step, i) => (
-                <motion.div
-                  key={step.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.2 + i * 0.1 }}
-                  className="p-4 rounded-lg bg-secondary/50 border border-border/50 text-center"
-                >
-                  <div
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-lg mb-2"
-                    style={{ backgroundColor: step.color + "20", color: step.color }}
-                  >
-                    <step.icon className="w-5 h-5" />
-                  </div>
-                  <p className="text-sm font-semibold text-foreground">{step.label}</p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {i === 0 && "Input BIM data"}
-                    {i === 1 && "Process & analyze"}
-                    {i === 2 && "Generate reports"}
-                  </p>
-                </motion.div>
-              ))}
+              <span>0{i + 1} / ENGINE</span>
+              <strong>{t.name}</strong>
+              <small>{i === 3 ? "Prototype concept" : "Personal tool"}</small>
+            </button>
+          ))}
+        </div>
+        <div id="engine-workspace" className="engine-workspace">
+          <header className="engine-header">
+            <div>
+              <span className="engine-eyebrow">
+                <Workflow size={16} aria-hidden="true" /> WORKFLOW EXPLORER
+              </span>
+              <h3>{tool.name}</h3>
+              <p>{tool.summary}</p>
             </div>
-          </div>
-
-          {/* Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            className="mt-8 p-6 rounded-lg bg-primary/5 border border-primary/20"
+            <span className="engine-status">{tool.status}</span>
+          </header>
+          <ol
+            className="workflow-nodes"
+            aria-label={`${tool.name} workflow stages`}
           >
-            <p className="text-sm text-foreground">
-              <span className="font-semibold">How it works:</span> Your Revit model feeds into custom Python automation scripts that extract parameters, detect clashes, generate schedules, and produce coordinated output — all without manual intervention. This pipeline reduces coordination time by up to 60% and eliminates human error.
-            </p>
-          </motion.div>
-        </motion.div>
+            {tool.nodes.map((n, i) => (
+              <li key={n.title}>
+                <button
+                  type="button"
+                  aria-pressed={i === nodeIndex}
+                  aria-controls="workflow-inspector"
+                  onClick={() => setNodeIndex(i)}
+                >
+                  <span>STAGE 0{i + 1}</span>
+                  <strong>{n.title}</strong>
+                  <ArrowDownRight size={20} aria-hidden="true" />
+                </button>
+                {i < tool.nodes.length - 1 && (
+                  <span className="workflow-connector" aria-hidden="true">
+                    →
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
+          <article
+            id="workflow-inspector"
+            className="workflow-inspector"
+            aria-label="Selected workflow stage"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <div>
+              <span className="engine-eyebrow">
+                STAGE 0{nodeIndex + 1} /{" "}
+                {tool.nodes.length.toString().padStart(2, "0")}
+              </span>
+              <h4>{node.title}</h4>
+              <p>{node.description}</p>
+              <a href="#clash-demo">
+                Try the coordination sandbox{" "}
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            </div>
+            <dl>
+              {[
+                ["Input", node.input],
+                ["Output", node.output],
+                ["Technology", node.technology],
+                ["Engineering benefit", node.benefit],
+                ["Related project use case", node.useCase],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </article>
+        </div>
+        <p className="evidence-note">
+          The three personal tools are documented in Ahmed’s CV. These diagrams
+          explain their workflows; recordings and validated outputs remain the
+          next evidence step. Revit Model Auditor is a proposed prototype. The
+          browser demo below uses synthetic elements and has no live Revit
+          connection.
+        </p>
       </div>
     </section>
   );
