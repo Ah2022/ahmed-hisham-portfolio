@@ -1451,3 +1451,52 @@
   padding: 12px 18px;
   overflow: visible;
 }
+
+.command-brand-logo {
+  width: 42px;
+  height: 32px;
+  display: block;
+}
+.project-cover {
+  margin: 0;
+  overflow: hidden;
+  background: #0c1724;
+}
+.card-cover {
+  aspect-ratio: 16 / 9;
+}
+.card-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.case-cover {
+  border: 1px solid #263344;
+  border-radius: 14px;
+  margin: 0 0 28px;
+}
+.case-cover img {
+  display: block;
+  width: 100%;
+  max-height: 580px;
+  object-fit: contain;
+}
+.case-cover video {
+  display: block;
+  width: 100%;
+  max-height: 580px;
+  background: #0c1724;
+}
+.case-cover figcaption {
+  padding: 13px 18px;
+  color: #8c9fb6;
+  font-size: 11px;
+  line-height: 1.7;
+}
+@media (max-width: 540px) {
+  .command-brand-logo {
+    width: 34px;
+    height: 26px;
+  }
+}
