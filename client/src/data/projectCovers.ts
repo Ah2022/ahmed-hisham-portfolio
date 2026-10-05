@@ -8,7 +8,7 @@ export const projectCovers: Record<
   },
   "nile-business-city": {
     image: "/images/projects/nbc-cover.webp",
-    alt: "Nile Business City towers and project title, from the supplied short video.",
+    alt: "Supplied exterior rendering of the four Nile Business City towers at dusk.",
     video: "/videos/nbc-cover.mp4",
   },
   "ceer-automotive-park": {
