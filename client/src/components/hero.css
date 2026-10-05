@@ -559,3 +559,28 @@
     margin-right: 3px;
   }
 }
+
+/* The source logo is preserved; its transparent canvas is framed in SVG. */
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 24px);
+  margin-bottom: 24px;
+}
+.hero-identity h1 {
+  min-width: 0;
+  margin-bottom: 0;
+}
+.hero-brand-logo {
+  width: clamp(72px, 7vw, 104px);
+  height: auto;
+  flex-shrink: 0;
+}
+@media (max-width: 480px) {
+  .hero-identity {
+    gap: 14px;
+  }
+  .hero-brand-logo {
+    width: 56px;
+  }
+}
