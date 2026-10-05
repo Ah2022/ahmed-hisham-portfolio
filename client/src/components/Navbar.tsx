@@ -94,7 +94,19 @@ export default function Navbar() {
             href={onHome ? "#hero" : "/#hero"}
             aria-label="Ahmed Hisham overview"
           >
-            AH<span>/ ENGINEERING</span>
+            <svg
+              className="command-brand-logo"
+              viewBox="393 775 662 499"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <image
+                href="/images/ahmed-hisham-logo.png"
+                width="1448"
+                height="2048"
+              />
+            </svg>
+            <span>/ ENGINEERING</span>
           </a>
           <div className="command-links">
             {sections.map((section, index) => (

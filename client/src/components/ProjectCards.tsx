@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { ArrowUpRight, MapPin, FileText } from "lucide-react";
 import { automationTools, projects } from "@/data/portfolio";
 import type { ProjectFilter } from "./Projects";
-import ProjectPreview from "./ProjectPreview";
+import ProjectCover from "./ProjectCover";
 export default function ProjectCards({ filter }: { filter: ProjectFilter }) {
   const selected = projects.filter(
     project => filter === "All" || project.category === filter
@@ -26,8 +26,8 @@ export default function ProjectCards({ filter }: { filter: ProjectFilter }) {
               className="project-visual-link"
               aria-label={`Open ${project.shortName} case study`}
             >
-              <ProjectPreview project={project} />
-              <span className="preview-kind">Technical illustration</span>
+              <ProjectCover project={project} />
+              <span className="preview-kind">Supplied project cover</span>
             </Link>
             <div className="project-card-body">
               <div className="project-kinds">

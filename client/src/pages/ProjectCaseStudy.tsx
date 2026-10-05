@@ -11,6 +11,7 @@ import { projects, automationTools, type Project } from "@/data/portfolio";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProjectPreview from "@/components/ProjectPreview";
+import ProjectCover from "@/components/ProjectCover";
 import CoordinationDemo from "@/components/CoordinationDemo";
 import NotFound from "./NotFound";
 
@@ -63,6 +64,7 @@ function CaseStudy({ project }: { project: Project }) {
               ))}
             </div>
           </header>
+          <ProjectCover project={project} caseStudy />
           <nav className="case-section-nav" aria-label="Case study sections">
             <a href="#case-overview">Overview</a>
             <a href="#case-scope">Scope</a>
