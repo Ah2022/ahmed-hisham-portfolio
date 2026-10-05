@@ -118,3 +118,6 @@ docs/phase-a/*.png
 docs/phase-2/*.png
 
 client/public/images/ahmed-hisham-logo.png
+
+client/public/images/projects/
+client/public/videos/nbc-cover.mp4
