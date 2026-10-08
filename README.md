@@ -19,11 +19,6 @@ The website is currently in **Phase 3 — Automation Explorer and Coordination S
 
 The following images showcase the current visual direction and project presentation.
 
-### Interactive BIM hero
-
-<a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site">
-  <img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/ahmed-hisham.png" alt="Ahmed Hisham interactive BIM portfolio hero" width="760" />
-</a>
 
 ### Featured project covers
 
