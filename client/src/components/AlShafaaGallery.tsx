@@ -1,39 +1,50 @@
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, Download, ExternalLink } from "lucide-react";
 import "./alShafaaGallery.css";
+// Supplied enhanced captures, registered against shared architectural outlines.
 const views = [
   {
-    label: "All disciplines",
-    file: "all",
-    x: 20,
+    label: "3D layout",
+    file: "architecture",
+    x: 38,
     y: 30,
-    width: 825,
-    height: 467,
+    width: 1024,
+    height: 642,
     description:
-      "Combined supplied coordination view with water-supply and drainage services in the villa's architectural context.",
+      "Enhanced shaded isometric showing the villa's architectural layout and facade.",
+  },
+  {
+    label: "All systems",
+    file: "all",
+    x: 38,
+    y: 80,
+    width: 1024,
+    height: 580,
+    description:
+      "Enhanced combined coordination view with water-supply and drainage services in the villa's architectural context.",
   },
   {
     label: "Water supply",
     file: "water",
-    x: 45,
-    y: 54,
-    width: 815,
-    height: 452,
+    x: 70,
+    y: 108,
+    width: 1018.88,
+    height: 565.16,
     description:
-      "Supplied water-supply isometric, including the blue pipe network and fixtures.",
+      "Enhanced water-supply isometric, showing the blue and red pipe networks and connected fixtures.",
   },
   {
     label: "Drainage",
     file: "drain",
-    x: 42,
-    y: 70,
-    width: 823,
-    height: 447,
+    x: 67,
+    y: 132,
+    width: 1003.52,
+    height: 544.88,
     description:
-      "Supplied drainage isometric, showing the drainage and vent network with architectural outlines.",
+      "Enhanced drainage isometric, showing drainage and vent routing with architectural outlines.",
   },
 ];
-const sequence = [0, 1, 2, 0];
+const sequence = [0, 1, 2, 3];
 const pdf = "/documents/projects/al-shafaa-ground-floor-drain.pdf";
 export default function AlShafaaGallery() {
   const [position, setPosition] = useState(0);
@@ -46,8 +57,8 @@ export default function AlShafaaGallery() {
   return (
     <div className="shafaa-gallery">
       <p>
-        Explore the supplied villa model views in a shared isometric frame.
-        Follow the sequence or select a system directly.
+        Explore the enhanced villa model views, from the architectural layout to
+        each service system. Follow the sequence or select a system directly.
       </p>
       <div
         className="shafaa-system-buttons"
@@ -62,22 +73,22 @@ export default function AlShafaaGallery() {
             aria-controls="shafaa-model-view"
             onClick={() => select(index)}
           >
-            {index === 0 ? "All" : v.label}
+            {v.file === "all" ? "All" : v.label}
           </button>
         ))}
       </div>
       <figure id="shafaa-model-view" className="shafaa-model-view">
         <svg
-          viewBox="0 0 900 550"
+          viewBox="0 0 1100 700"
           role="img"
           aria-labelledby="shafaa-view-title shafaa-view-desc"
         >
           <title id="shafaa-view-title">Al Shafaa villa — {view.label}</title>
           <desc id="shafaa-view-desc">
-            {view.description} Images are aligned by screen-space architectural
-            outlines; this is a supplied model capture, not a live model.
+            {view.description} Architectural context and system captures from
+            the supplied villa model.
           </desc>
-          <rect width="900" height="550" fill="#002423" />
+          <rect width="1100" height="700" fill="#1b3031" />
           {views.map(v => (
             <image
               key={v.file}
@@ -98,7 +109,7 @@ export default function AlShafaaGallery() {
       </figure>
       <div className="shafaa-slider-controls">
         <label htmlFor="shafaa-view-slider">
-          Discipline sequence{" "}
+          View sequence{" "}
           <strong>
             {position + 1} / 4 · {view.label}
           </strong>
@@ -146,32 +157,11 @@ export default function AlShafaaGallery() {
         </div>
         <p>
           Use mouse or touch on the slider, arrow keys when it is focused, or
-          the All / Water supply / Drainage buttons. Alignment preserves the
-          original captures and brings their shared building outlines into the
-          same frame.
+          the 3D layout / All / Water supply / Drainage buttons. The service
+          views share aligned building outlines. The shaded layout shows the
+          architectural context.
         </p>
       </div>
-      <details className="shafaa-architecture">
-        <summary>Architectural context · supplied villa isometric</summary>
-        <svg
-          viewBox="0 0 900 550"
-          role="img"
-          aria-label="Supplied shaded architectural isometric of the Al Shafaa villa"
-        >
-          <rect width="900" height="550" fill="#002423" />
-          <image
-            href="/images/projects/al-shafaa-architecture.png"
-            x="-39"
-            y="-63"
-            width="918.29"
-            height="575.935"
-          />
-        </svg>
-        <p>
-          Shaded architecture reference. Its framing is normalised separately;
-          facade visibility differs from the service captures.
-        </p>
-      </details>
       <section
         className="shafaa-shop-drawing"
         aria-label="Professional shop drawing"
