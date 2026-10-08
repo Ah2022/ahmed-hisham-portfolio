@@ -1,5 +1,7 @@
 .shafaa-gallery {
-  margin-top: 20px;
+  margin: 20px auto 0;
+  width: 90%;
+  max-width: 1080px;
 }
 .shafaa-gallery > p,
 .shafaa-slider-controls > p,
@@ -159,7 +161,7 @@
   flex-shrink: 0;
 }
 .shafaa-drawing-viewport {
-  max-height: 650px;
+  max-height: 580px;
   border: 1px solid #29394a;
   border-radius: 10px;
   background: white;
@@ -177,6 +179,9 @@
   outline-offset: 4px;
 }
 @media (max-width: 700px) {
+  .shafaa-gallery {
+    width: 100%;
+  }
   .shafaa-shop-drawing header {
     flex-direction: column;
   }

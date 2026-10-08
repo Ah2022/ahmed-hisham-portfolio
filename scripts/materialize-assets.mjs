@@ -5,9 +5,18 @@ const assets = [
     "al-shafaa-architecture.png",
     "client/public/images/projects/al-shafaa-architecture.png",
   ],
-  ["al-shafaa-all.png", "client/public/images/projects/al-shafaa-all.png"],
-  ["al-shafaa-drain.png", "client/public/images/projects/al-shafaa-drain.png"],
-  ["al-shafaa-water.png", "client/public/images/projects/al-shafaa-water.png"],
+  [
+    ["al-shafaa-all.webp.part1", "al-shafaa-all.webp.part2"],
+    "client/public/images/projects/al-shafaa-all.webp",
+  ],
+  [
+    ["al-shafaa-drain.webp.part1", "al-shafaa-drain.webp.part2"],
+    "client/public/images/projects/al-shafaa-drain.webp",
+  ],
+  [
+    ["al-shafaa-water.webp.part1", "al-shafaa-water.webp.part2"],
+    "client/public/images/projects/al-shafaa-water.webp",
+  ],
   [
     "al-shafaa-drawing.png",
     "client/public/images/projects/al-shafaa-drawing.png",
