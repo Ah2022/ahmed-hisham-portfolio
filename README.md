@@ -1,145 +1,186 @@
 # Ahmed Hisham — MEP & BIM Portfolio
 
-A modern, high-performance personal portfolio website for **Ahmed Hisham**, a BIM Automation Engineer, MEP BIM Modeler, AI + BIM Integration Specialist, and MEP Design & Clash Detection Specialist. Built with React 19, Tailwind CSS 4, and Framer Motion, featuring a JetBrains-inspired dark aesthetic.
+A modern, interactive portfolio website for **Ahmed Hisham**, a BIM Automation Engineer, MEP BIM Modeler, Revit Add-in Developer, and AI + BIM Integration Specialist.
 
 > **Live Site:** [Ahmed Hisham BIM Portfolio](https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site)
 
----
+## Portfolio status
 
-## Overview
+The website is currently in **Phase 3 — Automation Explorer and Coordination Sandbox**, with the foundation from Phase A and Phase 2 completed.
 
-This portfolio website serves as a professional digital presence for Ahmed Hisham, showcasing expertise in MEP engineering, BIM automation, and AI-driven workflows. The site is designed to attract potential clients and collaborators by highlighting core services, featured projects, and direct contact channels.
+- **Phase A — Interactive BIM hero:** completed
+- **Phase 2 — Portfolio layout and evidence structure:** completed
+- **Phase 3 — Automation workflows and coordination sandbox:** implemented
+- **Next phase — Evidence, conversion, and professional distribution:** planned
 
-The design philosophy follows a **"Precision Dark"** approach inspired by JetBrains' signature UI — clean dark surfaces with warm undertones, vibrant gradient accents, and a card-based content architecture that communicates technical sophistication.
+The next major milestone is not another visual redesign. It is adding verified project media, real tool recordings, sample reports, analytics, SEO improvements, and stronger conversion paths.
 
----
+## Visual showcase
 
-## Features
+The following images are served from the live portfolio website and demonstrate the current visual direction and project presentation.
 
-| Section | Description |
-|---------|-------------|
-| **Hero** | Full-viewport landing with profile photo, animated role tags, availability badge, and call-to-action buttons |
-| **About** | Hook-driven narrative with key statistics (largest project area, models coordinated, certifications, automation focus) and a technology stack display |
-| **Services** | Four detailed service cards — BIM Automation, MEP BIM Modeling, AI + BIM Integration, and Clash Detection & Coordination |
-| **Projects** | Two featured case studies — SMC Hospital (Riyadh, 69,145 m²) and Nile Business City (New Administrative Capital, Egypt) with project metadata and imagery |
-| **Contact** | Email and LinkedIn contact cards with a consultation CTA |
-| **Footer** | Minimal footer with social links and copyright |
+### Interactive BIM hero
 
-Additional highlights include smooth scroll-triggered animations via Framer Motion, a sticky navigation bar with backdrop blur, responsive design across all breakpoints, and a cohesive dark color system using OKLCH color tokens.
+<a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site">
+  <img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/ahmed-hisham.png" alt="Ahmed Hisham interactive BIM portfolio hero" width="760" />
+</a>
 
----
+### Featured project covers
 
-## Tech Stack
+<table>
+  <tr>
+    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/smc-hospital"><img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/projects/smc-cover.webp" alt="SMC Hospital project cover" width="380" /></a><br /><strong>SMC Hospital</strong></td>
+    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/nile-business-city"><img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/projects/nbc-cover.webp" alt="Nile Business City project cover" width="380" /></a><br /><strong>Nile Business City</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/ceer-automotive-park"><img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/projects/ceer-cover.webp" alt="CEER Automotive Supplier Park project cover" width="380" /></a><br /><strong>CEER Automotive Supplier Park</strong></td>
+    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/envi-al-shafa"><img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/projects/envi-cover.webp" alt="ENVI Al Shafa project cover" width="380" /></a><br /><strong>ENVI Al Shafa</strong></td>
+  </tr>
+</table>
+
+> **Note:** The README uses the published website asset URLs so the images render directly on GitHub. The original lossless assets remain in `source-assets/` and are materialized during installation and builds.
+
+## What is implemented
+
+- Interactive BIM hero with five selectable modes: Structure, MEP, Electrical, Clashes, and Automation
+- Interactive portrait, responsive layout, keyboard support, touch support, and reduced-motion behavior
+- Evidence-linked metric rail and command-style navigation
+- Four professional project case studies:
+  - [SMC Hospital](https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/smc-hospital)
+  - [Nile Business City](https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/nile-business-city)
+  - [CEER Automotive Supplier Park](https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/ceer-automotive-park)
+  - [ENVI Al Shafa](https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/envi-al-shafa)
+- Project filters and expandable scope, workflow, deliverables, coordination, and result sections
+- Experience timeline with BIM, MEP, Automation, Maintenance, Site Engineering, and Education filters
+- Three named personal automation tools:
+  - ClashResolveAI
+  - BIM Engine
+  - Plumbing Engine
+- Interactive BIM coordination sandbox with synthetic L03 service elements
+- Clash detection, issue creation, lifecycle status, before/current views, and elevation controls
+- JSON coordination report download and topic-only BCF 2.1 ZIP export
+- Real project cover images and an NBC case-study video
+- CV download, email contact, LinkedIn contact, routing, direct case-study refresh, and accessible navigation
+
+## Current assessment
+
+The website is now a strong **interactive portfolio platform** and has reached the end of its core product-build phase. Its main weakness is not functionality; it is evidence depth.
+
+The current case-study diagrams and coordination sandbox are explicitly illustrative. They demonstrate workflow thinking but do not yet replace verified project captures, model excerpts, or confirmed production deployment examples.
+
+## What is missing for the next phase
+
+### 1. Verified project evidence
+
+Prioritize SMC Hospital and Nile Business City with sanitized, publishable material:
+
+- Coordinated Revit service views
+- Pump-room, plant-room, or mechanical-floor sections
+- Medical-gas or typical-floor drawing crops
+- Riser sections and tank-area excerpts
+- Matched before/after coordination examples
+- Captions identifying Ahmed's personal contribution
+
+CEER and ENVI should follow with industrial and compound-service evidence.
+
+### 2. Real automation demonstrations
+
+For each personal tool, add one 30–60 second recording and one sample output:
+
+- ClashResolveAI: issue grouping, lifecycle tracking, and BCF exchange
+- BIM Engine: model extraction, geometry checks, issue navigation, and reports
+- Plumbing Engine: calculation inputs, rule checks, QA/QC, and generated reports
+
+### 3. Trust and conversion
+
+- Add privacy-conscious analytics for CV downloads, project opens, tool engagement, and contact clicks
+- Add a clearer primary CTA for hiring or consultation
+- Add testimonials, references, or approved collaboration evidence where available
+- Add tool maturity labels such as Prototype, Internal Tool, or Production Candidate
+
+### 4. Discoverability and maintainability
+
+- Add Open Graph and social preview metadata
+- Add structured data for Ahmed, the website, and project case studies
+- Add sitemap and canonical URLs
+- Add GitHub Actions checks for TypeScript, builds, and tests
+- Address the remaining bundle-size warning through route/component lazy loading
+
+## Tech stack
 
 | Technology | Purpose |
-|------------|---------|
+| --- | --- |
 | **React 19** | Component-based UI framework |
 | **TypeScript** | Type-safe development |
-| **Tailwind CSS 4** | Utility-first styling with OKLCH design tokens |
-| **Framer Motion** | Scroll-triggered and entrance animations |
-| **Vite 7** | Fast development server and build tooling |
+| **Tailwind CSS 4** | Utility-first styling and design tokens |
+| **Framer Motion** | Interactive and scroll-triggered animation |
+| **Vite 7** | Frontend build tooling |
 | **Wouter** | Lightweight client-side routing |
-| **Lucide React** | Consistent iconography |
-| **shadcn/ui** | Pre-built accessible UI components |
+| **Lucide React** | Interface icons |
+| **Express** | Production server bundle |
+| **BCF 2.1 export logic** | Coordination issue exchange demonstration |
 
----
+## Project structure
 
-## Project Structure
-
-```
+```text
 ahmed-hisham-portfolio/
 ├── client/
-│   ├── public/              # Static config files (favicon, robots.txt)
-│   ├── src/
-│   │   ├── components/      # Reusable UI components
-│   │   │   ├── Navbar.tsx       # Sticky navigation with backdrop blur
-│   │   │   ├── Hero.tsx         # Hero section with profile and role tags
-│   │   │   ├── About.tsx        # About section with stats grid
-│   │   │   ├── Services.tsx     # Four service cards
-│   │   │   ├── Projects.tsx     # Featured project case studies
-│   │   │   ├── Contact.tsx      # Contact cards and CTA
-│   │   │   └── Footer.tsx       # Footer with social links
-│   │   ├── hooks/
-│   │   │   └── useInView.ts     # Intersection Observer hook for animations
-│   │   ├── pages/
-│   │   │   └── Home.tsx         # Main landing page
-│   │   ├── App.tsx              # Root component with routing and theme
-│   │   ├── main.tsx             # React entry point
-│   │   └── index.css            # Global styles and design tokens
-│   └── index.html               # HTML template with font imports
-├── server/                      # Express server (production serving)
+│   ├── public/              # Materialized website assets
+│   └── src/
+│       ├── components/      # Hero, projects, automation, services, contact, UI
+│       ├── data/            # Project, experience, service, and tool records
+│       ├── lib/             # Clash simulation and export logic
+│       ├── pages/           # Home and project case-study routes
+│       ├── contexts/        # Theme and application contexts
+│       └── App.tsx          # Router and application shell
+├── docs/
+│   ├── phase-a/            # Interactive BIM hero documentation
+│   ├── phase-2/            # Portfolio layout and evidence plan
+│   └── phase-3/            # Automation explorer and coordination sandbox
+├── scripts/
+│   └── materialize-assets.mjs # Restores binary assets from base64 sources
+├── source-assets/           # Lossless source images, videos, CV, and documents
+├── tests/                   # Clash simulation and BCF/ZIP validation tests
+├── server/                  # Express production serving
 ├── package.json
 └── README.md
 ```
 
----
-
-## Design System
-
-The website uses a custom dark theme with the following design tokens:
-
-- **Background:** Deep warm black (`oklch(0.11 0.01 260)`)
-- **Card surfaces:** Elevated dark panels (`oklch(0.15 0.01 260)`)
-- **Primary accent:** Vibrant blue (`oklch(0.65 0.24 265)`)
-- **Gradient accents:** Orange-to-magenta for headings, blue-to-teal for technical elements
-- **Typography:** Plus Jakarta Sans (display), system sans-serif (body), JetBrains Mono (code/labels)
-
----
-
-## Getting Started
+## How to run
 
 ### Prerequisites
 
-- **Node.js** 22+ and **pnpm** 10+
+- Node.js 22+
+- pnpm 10+
 
-### Installation
+### Install and develop
 
 ```bash
-# Clone the repository
-git clone https://github.com/Ah2022/ahmed-hisham-portfolio.git
-cd ahmed-hisham-portfolio
-
-# Install dependencies
 pnpm install
-
-# Start development server
 pnpm dev
 ```
 
-The development server will start at `http://localhost:3000`.
+The development server runs at `http://localhost:3000`.
 
-### Build for Production
+### Validate and build
 
 ```bash
+pnpm check
+node --import tsx --test tests/clashSimulation.test.ts
 pnpm build
-pnpm start
 ```
 
----
+For static hosting:
 
-## Featured Projects
-
-### SMC Hospital — Riyadh, Saudi Arabia
-A ~69,145 m² state-of-the-art hospital in Riyadh's Al Wadi District (project DB-142), designed by DAR International. Full MEP modeling and multi-discipline coordination in Revit, targeting LEED v4 BD+C Healthcare Gold certification. IFC package issued October 2024.
-
-### Nile Business City — New Administrative Capital, Egypt
-One of Africa's tallest skyscrapers by Nile Developments. Comprehensive MEP coordination for this iconic mixed-use supertall tower, managing complex vertical distribution systems across 50+ floors in Egypt's New Administrative Capital.
-
----
+```bash
+pnpm build:site
+```
 
 ## Contact
 
-- **Email:** [Ahmed.hisham2000.ah@gmail.com](mailto:Ahmed.hisham2000.ah@gmail.com)
+- **Email:** [ahmed.hisham2000@gmail.com](mailto:ahmed.hisham2000@gmail.com)
 - **LinkedIn:** [linkedin.com/in/ahmed-hisham26](https://linkedin.com/in/ahmed-hisham26)
-
----
 
 ## License
 
 This project is proprietary. All rights reserved by Ahmed Hisham.
-
-## Interactive portfolio upgrade
-
-Five BIM hero modes, an interactive portrait, evidence-linked metrics, numbered command navigation, project filters, expandable experience and automation tools, and four interactive project case-study routes. Diagrams are illustrative; project captures can be supplied separately.
-
-Use `pnpm build:site` for static hosting. Photo and CV sources are stored losslessly in `source-assets` and restored automatically on installation/build by `scripts/materialize-assets.mjs`.
