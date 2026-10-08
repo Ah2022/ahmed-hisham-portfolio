@@ -13,7 +13,7 @@ The website is currently in **Phase 3 — Automation Explorer and Coordination S
 - **Phase 3 — Automation workflows and coordination sandbox:** implemented
 - **Next phase — Evidence, conversion, and professional distribution:** planned
 
-The next major milestone is not another visual redesign. It is adding verified project media, real tool recordings, sample reports, analytics, SEO improvements, and stronger conversion paths.
+
 
 ## Visual showcase
 
