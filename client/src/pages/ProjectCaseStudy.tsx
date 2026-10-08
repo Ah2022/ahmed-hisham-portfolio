@@ -12,6 +12,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProjectPreview from "@/components/ProjectPreview";
 import ProjectCover from "@/components/ProjectCover";
+import AlShafaaGallery from "@/components/AlShafaaGallery";
 import CoordinationDemo from "@/components/CoordinationDemo";
 import NotFound from "./NotFound";
 
@@ -161,97 +162,104 @@ function CaseStudy({ project }: { project: Project }) {
           <section id="case-gallery" className="case-block case-gallery">
             <span className="section-index">04 / EXPLORE</span>
             <h2>Gallery / Technical Diagram</h2>
-            <p>
-              Explore an illustrative service diagram. System switches and the
-              view selector explain scope; they do not display live model data.
-            </p>
-            <div className="case-explorer">
-              <div
-                className="case-layer-controls"
-                role="group"
-                aria-label="Case study system layers"
-              >
-                {project.systems.map(system => (
-                  <button
-                    type="button"
-                    key={system}
-                    aria-pressed={systems.includes(system)}
-                    onClick={() =>
-                      setSystems(current =>
-                        current.includes(system)
-                          ? current.filter(item => item !== system)
-                          : [...current, system]
-                      )
-                    }
-                  >
-                    {system}
-                  </button>
-                ))}
-                <button
-                  type="button"
-                  aria-pressed={annotations}
-                  onClick={() => setAnnotations(current => !current)}
-                >
-                  Annotations
-                </button>
-              </div>
-              <ProjectPreview
-                project={project}
-                enabledSystems={systems}
-                level={project.levels[level]}
-                annotations={annotations}
-              />
-              <div className="case-view-controls">
-                <label className="range-label" htmlFor="case-level">
-                  {project.category === "Healthcare"
-                    ? "Level selector"
-                    : "Context view selector"}
-                  <strong>{project.levels[level]}</strong>
-                </label>
-                <input
-                  id="case-level"
-                  aria-label="Project level or context view"
-                  type="range"
-                  min="0"
-                  max={project.levels.length - 1}
-                  step="1"
-                  value={level}
-                  onChange={event => setLevel(Number(event.target.value))}
-                />
-                <p className="case-layer-status" aria-live="polite">
-                  {systems.length
-                    ? `Visible: ${systems.join(" · ")}`
-                    : "All service layers hidden"}{" "}
-                  · {project.levels[level]}
+            {project.slug === "envi-al-shafa" ? (
+              <AlShafaaGallery />
+            ) : (
+              <>
+                <p>
+                  Explore an illustrative service diagram. System switches and
+                  the view selector explain scope; they do not display live
+                  model data.
                 </p>
-                <div className="case-annotation-list">
-                  {annotations &&
-                    project.annotations.map((annotation, index) => (
-                      <span key={annotation}>
-                        <b>0{index + 1}</b> {annotation}
-                      </span>
+                <div className="case-explorer">
+                  <div
+                    className="case-layer-controls"
+                    role="group"
+                    aria-label="Case study system layers"
+                  >
+                    {project.systems.map(system => (
+                      <button
+                        type="button"
+                        key={system}
+                        aria-pressed={systems.includes(system)}
+                        onClick={() =>
+                          setSystems(current =>
+                            current.includes(system)
+                              ? current.filter(item => item !== system)
+                              : [...current, system]
+                          )
+                        }
+                      >
+                        {system}
+                      </button>
                     ))}
+                    <button
+                      type="button"
+                      aria-pressed={annotations}
+                      onClick={() => setAnnotations(current => !current)}
+                    >
+                      Annotations
+                    </button>
+                  </div>
+                  <ProjectPreview
+                    project={project}
+                    enabledSystems={systems}
+                    level={project.levels[level]}
+                    annotations={annotations}
+                  />
+                  <div className="case-view-controls">
+                    <label className="range-label" htmlFor="case-level">
+                      {project.category === "Healthcare"
+                        ? "Level selector"
+                        : "Context view selector"}
+                      <strong>{project.levels[level]}</strong>
+                    </label>
+                    <input
+                      id="case-level"
+                      aria-label="Project level or context view"
+                      type="range"
+                      min="0"
+                      max={project.levels.length - 1}
+                      step="1"
+                      value={level}
+                      onChange={event => setLevel(Number(event.target.value))}
+                    />
+                    <p className="case-layer-status" aria-live="polite">
+                      {systems.length
+                        ? `Visible: ${systems.join(" · ")}`
+                        : "All service layers hidden"}{" "}
+                      · {project.levels[level]}
+                    </p>
+                    <div className="case-annotation-list">
+                      {annotations &&
+                        project.annotations.map((annotation, index) => (
+                          <span key={annotation}>
+                            <b>0{index + 1}</b> {annotation}
+                          </span>
+                        ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            {(project.category === "Healthcare" ||
-              project.category === "High-rise") && <CoordinationDemo />}
-            <div className="media-slots">
-              <h3>Project media slots</h3>
-              <p>
-                Reserved for actual model views, drawings and recorded
-                coordination evidence.
-              </p>
-              <div>
-                {project.mediaNeeded.map(media => (
-                  <figure key={media}>
-                    <ImageIcon size={24} aria-hidden="true" />
-                    <figcaption>{media}</figcaption>
-                    <span>Media to be supplied</span>
-                  </figure>
-                ))}
-              </div>
-            </div>
+                {(project.category === "Healthcare" ||
+                  project.category === "High-rise") && <CoordinationDemo />}
+                <div className="media-slots">
+                  <h3>Project media slots</h3>
+                  <p>
+                    Reserved for actual model views, drawings and recorded
+                    coordination evidence.
+                  </p>
+                  <div>
+                    {project.mediaNeeded.map(media => (
+                      <figure key={media}>
+                        <ImageIcon size={24} aria-hidden="true" />
+                        <figcaption>{media}</figcaption>
+                        <span>Media to be supplied</span>
+                      </figure>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
           </section>
           <section id="case-results" className="case-block">
             <span className="section-index">05 / OUTPUT</span>

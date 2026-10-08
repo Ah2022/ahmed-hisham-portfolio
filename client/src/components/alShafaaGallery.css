@@ -1,0 +1,199 @@
+.shafaa-gallery {
+  margin-top: 20px;
+}
+.shafaa-gallery > p,
+.shafaa-slider-controls > p,
+.shafaa-architecture > p,
+.shafaa-shop-drawing p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #8c9fb6;
+}
+.shafaa-system-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 16px;
+}
+.shafaa-gallery button,
+.shafaa-drawing-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  border: 1px solid #2a3a4d;
+  border-radius: 7px;
+  background: #101c2b;
+  color: #d7e3f2;
+  padding: 10px 16px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.shafaa-gallery button[aria-pressed="true"],
+.shafaa-gallery button[aria-current="step"] {
+  border-color: #5eead4;
+  color: #5eead4;
+  background: #5eead412;
+}
+.shafaa-gallery button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.shafaa-model-view {
+  margin: 0;
+  border: 1px solid #29394a;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #002423;
+}
+.shafaa-model-view svg,
+.shafaa-architecture svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.shafaa-model-view figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #101a28;
+  padding: 18px 22px;
+  min-height: 102px;
+}
+.shafaa-model-view figcaption strong {
+  font-size: 16px;
+  color: #5eead4;
+}
+.shafaa-model-view figcaption span {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #9cadbf;
+}
+.shafaa-slider-controls {
+  padding: 22px;
+  border: 1px solid #29394a;
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
+}
+.shafaa-slider-controls > label,
+.shafaa-shop-drawing > label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  color: #9cadbf;
+  margin-bottom: 16px;
+}
+.shafaa-slider-controls > label strong {
+  color: #d7e3f2;
+}
+.shafaa-gallery input[type="range"] {
+  width: 100%;
+  accent-color: #5eead4;
+  min-height: 36px;
+}
+.shafaa-sequence {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+.shafaa-sequence button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 14px 12px;
+  font-size: 11px;
+}
+.shafaa-sequence span {
+  font:
+    10px "JetBrains Mono",
+    monospace;
+  opacity: 0.6;
+}
+.shafaa-prev-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 18px 0;
+}
+.shafaa-architecture {
+  margin: 24px 0;
+  padding: 18px;
+  border: 1px solid #29394a;
+  border-radius: 10px;
+  background: #101a28;
+}
+.shafaa-architecture summary {
+  font-size: 14px;
+  cursor: pointer;
+  min-height: 30px;
+}
+.shafaa-architecture svg {
+  margin-top: 16px;
+  border-radius: 8px;
+}
+.shafaa-shop-drawing {
+  margin-top: 36px;
+  padding-top: 26px;
+  border-top: 1px solid #29394a;
+}
+.shafaa-shop-drawing header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+.shafaa-shop-drawing h3 {
+  margin: 14px 0 10px;
+  font-size: 24px;
+}
+.shafaa-drawing-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.shafaa-drawing-viewport {
+  max-height: 650px;
+  border: 1px solid #29394a;
+  border-radius: 10px;
+  background: white;
+}
+.shafaa-drawing-viewport img {
+  display: block;
+  height: auto;
+}
+.shafaa-gallery button:focus-visible,
+.shafaa-gallery a:focus-visible,
+.shafaa-gallery input:focus-visible,
+.shafaa-gallery summary:focus-visible,
+.shafaa-drawing-viewport:focus-visible {
+  outline: 2px solid #5eead4;
+  outline-offset: 4px;
+}
+@media (max-width: 700px) {
+  .shafaa-shop-drawing header {
+    flex-direction: column;
+  }
+  .shafaa-drawing-links {
+    flex-shrink: 1;
+  }
+  .shafaa-sequence {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .shafaa-slider-controls {
+    padding: 16px;
+  }
+  .shafaa-model-view figcaption {
+    padding: 16px;
+    min-height: 130px;
+  }
+  .shafaa-drawing-viewport {
+    max-height: 440px;
+  }
+}
