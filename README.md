@@ -17,7 +17,7 @@ The next major milestone is not another visual redesign. It is adding verified p
 
 ## Visual showcase
 
-The following images are served from the live portfolio website and demonstrate the current visual direction and project presentation.
+The following images showcase the current visual direction and project presentation.
 
 ### Interactive BIM hero
 
@@ -29,16 +29,14 @@ The following images are served from the live portfolio website and demonstrate 
 
 <table>
   <tr>
-    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/smc-hospital"><img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/projects/smc-cover.webp" alt="SMC Hospital project cover" width="380" /></a><br /><strong>SMC Hospital</strong></td>
-    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/nile-business-city"><img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/projects/nbc-cover.webp" alt="Nile Business City project cover" width="380" /></a><br /><strong>Nile Business City</strong></td>
+    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/smc-hospital"><img src="./docs/images/projects/smc-hospital.png" alt="SMC Hospital project image" width="380" /></a><br /><strong>SMC Hospital</strong></td>
+    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/nile-business-city"><img src="./docs/images/projects/nile-business-city.png" alt="Nile Business City project image" width="380" /></a><br /><strong>Nile Business City</strong></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/ceer-automotive-park"><img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/projects/ceer-cover.webp" alt="CEER Automotive Supplier Park project cover" width="380" /></a><br /><strong>CEER Automotive Supplier Park</strong></td>
-    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/envi-al-shafa"><img src="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/images/projects/envi-cover.webp" alt="ENVI Al Shafa project cover" width="380" /></a><br /><strong>ENVI Al Shafa</strong></td>
+    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/ceer-automotive-park"><img src="./docs/images/projects/ceer-automotive-supplier-park.png" alt="CEER Automotive Supplier Park project image" width="380" /></a><br /><strong>CEER Automotive Supplier Park</strong></td>
+    <td align="center"><a href="https://ahmed-hisham-bim-portfolio.ah256.chatgpt.site/projects/envi-al-shafa"><img src="./docs/images/projects/envi-al-shafa-project.png" alt="ENVI Al Shafa project image" width="380" /></a><br /><strong>ENVI Al Shafa</strong></td>
   </tr>
 </table>
-
-> **Note:** The README uses the published website asset URLs so the images render directly on GitHub. The original lossless assets remain in `source-assets/` and are materialized during installation and builds.
 
 ## What is implemented
 
