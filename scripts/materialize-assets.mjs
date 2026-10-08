@@ -1,6 +1,21 @@
 import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 const assets = [
+  [
+    "al-shafaa-architecture.png",
+    "client/public/images/projects/al-shafaa-architecture.png",
+  ],
+  ["al-shafaa-all.png", "client/public/images/projects/al-shafaa-all.png"],
+  ["al-shafaa-drain.png", "client/public/images/projects/al-shafaa-drain.png"],
+  ["al-shafaa-water.png", "client/public/images/projects/al-shafaa-water.png"],
+  [
+    "al-shafaa-drawing.png",
+    "client/public/images/projects/al-shafaa-drawing.png",
+  ],
+  [
+    ["al-shafaa-drain.pdf.part1", "al-shafaa-drain.pdf.part2"],
+    "client/public/documents/projects/al-shafaa-ground-floor-drain.pdf",
+  ],
   ["smc-cover.webp", "client/public/images/projects/smc-cover.webp"],
   ["ceer-cover.webp", "client/public/images/projects/ceer-cover.webp"],
   ["envi-cover.webp", "client/public/images/projects/envi-cover.webp"],
@@ -16,7 +31,13 @@ for (const [name, destination] of assets) {
   writeFileSync(
     destination,
     Buffer.from(
-      readFileSync(`source-assets/${name}.base64`, "utf8").trim(),
+      Array.isArray(name)
+        ? name
+            .map(part =>
+              readFileSync(`source-assets/${part}.base64`, "utf8").trim()
+            )
+            .join("")
+        : readFileSync(`source-assets/${name}.base64`, "utf8").trim(),
       "base64"
     )
   );
