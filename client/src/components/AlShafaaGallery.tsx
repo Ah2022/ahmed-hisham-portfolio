@@ -88,11 +88,11 @@ export default function AlShafaaGallery() {
             {view.description} Architectural context and system captures from
             the supplied villa model.
           </desc>
-          <rect width="1100" height="700" fill="#1b3031" />
+          <rect width="1100" height="700" fill="#153431" />
           {views.map(v => (
             <image
               key={v.file}
-              href={`/images/projects/al-shafaa-${v.file}.png`}
+              href={`/images/projects/al-shafaa-${v.file}.${v.file === "architecture" ? "png" : "webp"}`}
               x={v.x}
               y={v.y}
               width={v.width}
