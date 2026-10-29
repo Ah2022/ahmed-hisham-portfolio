@@ -1,6 +1,9 @@
 import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 const assets = [
+  ["nbc-tower-b.webp", "client/public/images/projects/nbc-tower-b.webp"],
+  ["nbc-drainage.webp", "client/public/images/projects/nbc-drainage.webp"],
+  ["nbc-water-supply.webp", "client/public/images/projects/nbc-water-supply.webp"],
   [
     ["smc-detail-level-1-medical-gas.webp.part1"],
     "client/public/images/projects/smc-detail-level-1-medical-gas.webp",

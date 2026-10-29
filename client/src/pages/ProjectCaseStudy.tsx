@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import ProjectPreview from "@/components/ProjectPreview";
 import ProjectCover from "@/components/ProjectCover";
 import SMCGallery from "@/components/SMCGallery";
+import NBCGallery from "@/components/NBCGallery";
 import AlShafaaGallery from "@/components/AlShafaaGallery";
 import SMCTechnicalSheets from "@/components/SMCTechnicalSheets";
 import SMCProjectMedia from "@/components/SMCProjectMedia";
@@ -172,6 +173,8 @@ function CaseStudy({ project }: { project: Project }) {
               <>
                 {project.slug === "smc-hospital" ? (
                   <SMCGallery />
+                ) : project.slug === "nile-business-city" ? (
+                  <NBCGallery />
                 ) : (
                   <>
                     <p>
