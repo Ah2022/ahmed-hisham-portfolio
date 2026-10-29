@@ -13,7 +13,12 @@ import Footer from "@/components/Footer";
 import ProjectPreview from "@/components/ProjectPreview";
 import ProjectCover from "@/components/ProjectCover";
 import SMCGallery from "@/components/SMCGallery";
+import NBCGallery from "@/components/NBCGallery";
+import NBCFloorComparison from "@/components/NBCFloorComparison";
 import AlShafaaGallery from "@/components/AlShafaaGallery";
+import SMCTechnicalSheets from "@/components/SMCTechnicalSheets";
+import NBCTechnicalSheets from "@/components/NBCTechnicalSheets";
+import CEERTechnicalSheets from "@/components/CEERTechnicalSheets";
 import SMCProjectMedia from "@/components/SMCProjectMedia";
 import SMCBathroomComparison from "@/components/SMCBathroomComparison";
 import CoordinationDemo from "@/components/CoordinationDemo";
@@ -171,6 +176,8 @@ function CaseStudy({ project }: { project: Project }) {
               <>
                 {project.slug === "smc-hospital" ? (
                   <SMCGallery />
+                ) : project.slug === "nile-business-city" ? (
+                  <NBCGallery />
                 ) : (
                   <>
                     <p>
@@ -255,11 +262,18 @@ function CaseStudy({ project }: { project: Project }) {
                   project.category === "High-rise") &&
                   (project.slug === "smc-hospital" ? (
                     <SMCBathroomComparison />
+                  ) : project.slug === "nile-business-city" ? (
+                    <NBCFloorComparison />
                   ) : (
                     <CoordinationDemo />
                   ))}
+                {project.slug === "nile-business-city" && <NBCTechnicalSheets />}
+                {project.slug === "ceer-automotive-park" && <CEERTechnicalSheets />}
                 {project.slug === "smc-hospital" ? (
-                  <SMCProjectMedia />
+                  <>
+                    <SMCTechnicalSheets />
+                    <SMCProjectMedia />
+                  </>
                 ) : (
                   <div className="media-slots">
                     <h3>Project media slots</h3>

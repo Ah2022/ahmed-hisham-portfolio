@@ -8,6 +8,7 @@ export default function ProjectCover({
   caseStudy?: boolean;
 }) {
   const cover = projectCovers[project.slug];
+  const autoplay = project.slug === "nile-business-city";
   return (
     <figure
       className={`project-cover ${caseStudy ? "case-cover" : "card-cover"}`}
@@ -15,8 +16,11 @@ export default function ProjectCover({
       {caseStudy && cover.video ? (
         <video
           controls
+          autoPlay={autoplay}
+          muted={autoplay}
+          loop={autoplay}
           playsInline
-          preload="none"
+          preload={autoplay ? "auto" : "none"}
           poster={cover.image}
           aria-label={`${project.shortName} supplied project cover video`}
         >
@@ -37,7 +41,7 @@ export default function ProjectCover({
         <figcaption>
           Project cover supplied by Ahmed
           {cover.video
-            ? " · Short exterior presentation; use the player controls to view it."
+            ? " · Short exterior presentation; player controls are available."
             : ""}
         </figcaption>
       )}
