@@ -1,6 +1,23 @@
 import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 const assets = [
+  [["ceer-sheet-ASP-MBL-PL2-00-SD-PH-00026.pdf.part1", "ceer-sheet-ASP-MBL-PL2-00-SD-PH-00026.pdf.part2"], "client/public/documents/projects/ceer-sheets/ASP-MBL-PL2-00-SD-PH-00026.pdf"],
+  [["ceer-sheet-ASP-MBL-PL2-00-SD-PH-00026.webp.part1"], "client/public/images/projects/ceer-sheets/ASP-MBL-PL2-00-SD-PH-00026.webp"],
+  [["ceer-sheet-ASP-MBL-PL2-XX-SD-PH-00116.pdf.part1", "ceer-sheet-ASP-MBL-PL2-XX-SD-PH-00116.pdf.part2"], "client/public/documents/projects/ceer-sheets/ASP-MBL-PL2-XX-SD-PH-00116.pdf"],
+  [["ceer-sheet-ASP-MBL-PL2-XX-SD-PH-00116.webp.part1"], "client/public/images/projects/ceer-sheets/ASP-MBL-PL2-XX-SD-PH-00116.webp"],
+  [["ceer-sheet-ASP-MBL-PL2-XX-SD-PH-00119.pdf.part1"], "client/public/documents/projects/ceer-sheets/ASP-MBL-PL2-XX-SD-PH-00119.pdf"],
+  [["ceer-sheet-ASP-MBL-PL2-XX-SD-PH-00119.webp.part1"], "client/public/images/projects/ceer-sheets/ASP-MBL-PL2-XX-SD-PH-00119.webp"],
+  [["ceer-sheet-ASP-MBL-PL2-XX-SD-PH-00115.pdf.part1", "ceer-sheet-ASP-MBL-PL2-XX-SD-PH-00115.pdf.part2"], "client/public/documents/projects/ceer-sheets/ASP-MBL-PL2-XX-SD-PH-00115.pdf"],
+  [["ceer-sheet-ASP-MBL-PL2-XX-SD-PH-00115.webp.part1"], "client/public/images/projects/ceer-sheets/ASP-MBL-PL2-XX-SD-PH-00115.webp"],
+  [["ceer-sheet-ASP-MBL-PL2-00-SD-PH-00025.pdf.part1", "ceer-sheet-ASP-MBL-PL2-00-SD-PH-00025.pdf.part2"], "client/public/documents/projects/ceer-sheets/ASP-MBL-PL2-00-SD-PH-00025.pdf"],
+  [["ceer-sheet-ASP-MBL-PL2-00-SD-PH-00025.webp.part1"], "client/public/images/projects/ceer-sheets/ASP-MBL-PL2-00-SD-PH-00025.webp"],
+  [["ceer-sheet-MAS-ARC-PL2-00-SD-PH-04201.pdf.part1", "ceer-sheet-MAS-ARC-PL2-00-SD-PH-04201.pdf.part2"], "client/public/documents/projects/ceer-sheets/MAS-ARC-PL2-00-SD-PH-04201.pdf"],
+  [["ceer-sheet-MAS-ARC-PL2-00-SD-PH-04201.webp.part1"], "client/public/images/projects/ceer-sheets/MAS-ARC-PL2-00-SD-PH-04201.webp"],
+  [["ceer-sheet-MAS-ARC-PL2-00-SD-PH-01407.pdf.part1", "ceer-sheet-MAS-ARC-PL2-00-SD-PH-01407.pdf.part2"], "client/public/documents/projects/ceer-sheets/MAS-ARC-PL2-00-SD-PH-01407.pdf"],
+  [["ceer-sheet-MAS-ARC-PL2-00-SD-PH-01407.webp.part1"], "client/public/images/projects/ceer-sheets/MAS-ARC-PL2-00-SD-PH-01407.webp"],
+  [["ceer-sheet-MAS-ARC-PL2-00-SD-PH-01307.pdf.part1", "ceer-sheet-MAS-ARC-PL2-00-SD-PH-01307.pdf.part2"], "client/public/documents/projects/ceer-sheets/MAS-ARC-PL2-00-SD-PH-01307.pdf"],
+  [["ceer-sheet-MAS-ARC-PL2-00-SD-PH-01307.webp.part1"], "client/public/images/projects/ceer-sheets/MAS-ARC-PL2-00-SD-PH-01307.webp"],
+
   [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.pdf.part1", "nbc-sheet-NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.pdf.part2"], "client/public/documents/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.pdf"],
   [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.webp.part1"], "client/public/images/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.webp"],
   [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F28-FP-DWG-1228.pdf.part1", "nbc-sheet-NBC-07-MAAP-DD-TW-A-F28-FP-DWG-1228.pdf.part2"], "client/public/documents/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F28-FP-DWG-1228.pdf"],
