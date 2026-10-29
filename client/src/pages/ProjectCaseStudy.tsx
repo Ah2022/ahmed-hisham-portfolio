@@ -14,6 +14,7 @@ import ProjectPreview from "@/components/ProjectPreview";
 import ProjectCover from "@/components/ProjectCover";
 import SMCGallery from "@/components/SMCGallery";
 import NBCGallery from "@/components/NBCGallery";
+import NBCFloorComparison from "@/components/NBCFloorComparison";
 import AlShafaaGallery from "@/components/AlShafaaGallery";
 import SMCTechnicalSheets from "@/components/SMCTechnicalSheets";
 import SMCProjectMedia from "@/components/SMCProjectMedia";
@@ -259,6 +260,8 @@ function CaseStudy({ project }: { project: Project }) {
                   project.category === "High-rise") &&
                   (project.slug === "smc-hospital" ? (
                     <SMCBathroomComparison />
+                  ) : project.slug === "nile-business-city" ? (
+                    <NBCFloorComparison />
                   ) : (
                     <CoordinationDemo />
                   ))}

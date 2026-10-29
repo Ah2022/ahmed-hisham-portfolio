@@ -1,0 +1,42 @@
+.coordination-demo.nbc-floor {
+  width: 100%;
+  max-width: 1080px;
+  margin: 24px auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.nbc-floor svg {
+  aspect-ratio: 16/9;
+  height: auto;
+  cursor: ew-resize;
+  user-select: none;
+}
+.nbc-floor figure {
+  margin: 16px 0 0;
+  border: 1px solid #304054;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #222932;
+}
+.nbc-floor figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+}
+.nbc-floor figcaption {
+  font-size: 12px;
+  color: #9cadbf;
+  padding: 14px 18px;
+}
+.nbc-floor input[type="range"] {
+  width: 100%;
+  min-height: 44px;
+  accent-color: #5eead4;
+}
+.nbc-floor :focus-visible {
+  outline: 2px solid #5eead4;
+  outline-offset: 4px;
+}
