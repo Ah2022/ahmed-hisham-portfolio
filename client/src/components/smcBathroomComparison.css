@@ -1,0 +1,32 @@
+.smc-bathroom svg {
+  cursor: ew-resize;
+  user-select: none;
+}
+.smc-bathroom figure {
+  margin: 16px 0 0;
+  border: 1px solid #304054;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #222932;
+}
+.smc-bathroom figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1600/980;
+  object-fit: contain;
+}
+.smc-bathroom figcaption {
+  font-size: 12px;
+  color: #9cadbf;
+  padding: 14px 18px;
+}
+.smc-bathroom input[type="range"] {
+  width: 100%;
+  min-height: 44px;
+  accent-color: #5eead4;
+}
+.smc-bathroom :focus-visible {
+  outline: 2px solid #5eead4;
+  outline-offset: 4px;
+}
