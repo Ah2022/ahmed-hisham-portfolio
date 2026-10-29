@@ -1,3 +1,15 @@
+.coordination-demo.smc-bathroom {
+  width: 100%;
+  max-width: 1080px;
+  margin: 24px auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.smc-bathroom svg {
+  aspect-ratio: 16/9;
+  height: auto;
+}
 .smc-bathroom svg {
   cursor: ew-resize;
   user-select: none;
@@ -13,7 +25,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1600/980;
+  aspect-ratio: 16/9;
   object-fit: contain;
 }
 .smc-bathroom figcaption {
