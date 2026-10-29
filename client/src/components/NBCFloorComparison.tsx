@@ -44,10 +44,15 @@ export default function NBCFloorComparison() {
             </defs>
             <rect width="1600" height="900" fill="#222932" />
             <g clipPath={`url(#${uid}-context)`}>
-              <image href="/images/projects/nbc-mechanical-context.webp" width="1600" height="900" preserveAspectRatio="xMidYMid meet" />
+              <image href="/images/projects/nbc-mechanical-context.webp" y="63" width="1600" height="774" />
             </g>
             <g clipPath={`url(#${uid}-services)`}>
-              <image href="/images/projects/nbc-mechanical-services.webp" width="1600" height="900" preserveAspectRatio="xMidYMid meet" />
+              {/* Register shared model features to the context view in native image
+                  coordinates, then add its 63px vertical canvas padding.
+                  Keep the reveal clip outside this transform so it follows the slider. */}
+              <image href="/images/projects/nbc-mechanical-services.webp"
+                width="1600" height="754"
+                transform="matrix(1.064272 0.000105 -0.000105 1.064272 -22.44979 87.318444)" />
             </g>
             <path d={`M${split * 16} 0V900`} stroke="#e2e8f0" strokeWidth="3" />
             <circle cx={split * 16} cy="450" r="26" fill="#101c2b" stroke="#5eead4" strokeWidth="3" />
