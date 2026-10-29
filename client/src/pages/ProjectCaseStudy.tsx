@@ -17,6 +17,7 @@ import NBCGallery from "@/components/NBCGallery";
 import NBCFloorComparison from "@/components/NBCFloorComparison";
 import AlShafaaGallery from "@/components/AlShafaaGallery";
 import SMCTechnicalSheets from "@/components/SMCTechnicalSheets";
+import NBCTechnicalSheets from "@/components/NBCTechnicalSheets";
 import SMCProjectMedia from "@/components/SMCProjectMedia";
 import SMCBathroomComparison from "@/components/SMCBathroomComparison";
 import CoordinationDemo from "@/components/CoordinationDemo";
@@ -265,6 +266,7 @@ function CaseStudy({ project }: { project: Project }) {
                   ) : (
                     <CoordinationDemo />
                   ))}
+                {project.slug === "nile-business-city" && <NBCTechnicalSheets />}
                 {project.slug === "smc-hospital" ? (
                   <>
                     <SMCTechnicalSheets />

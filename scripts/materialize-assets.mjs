@@ -1,6 +1,21 @@
 import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 const assets = [
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.pdf.part1", "nbc-sheet-NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.pdf.part2"], "client/public/documents/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.pdf"],
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.webp.part1"], "client/public/images/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F34-FP-DWG-1234.webp"],
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F28-FP-DWG-1228.pdf.part1", "nbc-sheet-NBC-07-MAAP-DD-TW-A-F28-FP-DWG-1228.pdf.part2"], "client/public/documents/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F28-FP-DWG-1228.pdf"],
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F28-FP-DWG-1228.webp.part1"], "client/public/images/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F28-FP-DWG-1228.webp"],
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F15-FP-DWG-000.pdf.part1", "nbc-sheet-NBC-07-MAAP-DD-TW-A-F15-FP-DWG-000.pdf.part2", "nbc-sheet-NBC-07-MAAP-DD-TW-A-F15-FP-DWG-000.pdf.part3"], "client/public/documents/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F15-FP-DWG-000.pdf"],
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F15-FP-DWG-000.webp.part1"], "client/public/images/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F15-FP-DWG-000.webp"],
+  [["nbc-sheet-NBC-07-MAAP-D.D-TW-A-F34-PW-DWG-1334.pdf.part1", "nbc-sheet-NBC-07-MAAP-D.D-TW-A-F34-PW-DWG-1334.pdf.part2"], "client/public/documents/projects/nbc-sheets/NBC-07-MAAP-D.D-TW-A-F34-PW-DWG-1334.pdf"],
+  [["nbc-sheet-NBC-07-MAAP-D.D-TW-A-F34-PW-DWG-1334.webp.part1"], "client/public/images/projects/nbc-sheets/NBC-07-MAAP-D.D-TW-A-F34-PW-DWG-1334.webp"],
+  [["nbc-sheet-NBC-07-MAAP-D.D-TW-A-F28-PW-DWG-1328.pdf.part1", "nbc-sheet-NBC-07-MAAP-D.D-TW-A-F28-PW-DWG-1328.pdf.part2"], "client/public/documents/projects/nbc-sheets/NBC-07-MAAP-D.D-TW-A-F28-PW-DWG-1328.pdf"],
+  [["nbc-sheet-NBC-07-MAAP-D.D-TW-A-F28-PW-DWG-1328.webp.part1"], "client/public/images/projects/nbc-sheets/NBC-07-MAAP-D.D-TW-A-F28-PW-DWG-1328.webp"],
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F28-PD-DWG-1428.pdf.part1", "nbc-sheet-NBC-07-MAAP-DD-TW-A-F28-PD-DWG-1428.pdf.part2", "nbc-sheet-NBC-07-MAAP-DD-TW-A-F28-PD-DWG-1428.pdf.part3"], "client/public/documents/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F28-PD-DWG-1428.pdf"],
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-F28-PD-DWG-1428.webp.part1"], "client/public/images/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-F28-PD-DWG-1428.webp"],
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-ALL-PD-DWG-0070.pdf.part1", "nbc-sheet-NBC-07-MAAP-DD-TW-A-ALL-PD-DWG-0070.pdf.part2", "nbc-sheet-NBC-07-MAAP-DD-TW-A-ALL-PD-DWG-0070.pdf.part3", "nbc-sheet-NBC-07-MAAP-DD-TW-A-ALL-PD-DWG-0070.pdf.part4", "nbc-sheet-NBC-07-MAAP-DD-TW-A-ALL-PD-DWG-0070.pdf.part5", "nbc-sheet-NBC-07-MAAP-DD-TW-A-ALL-PD-DWG-0070.pdf.part6"], "client/public/documents/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-ALL-PD-DWG-0070.pdf"],
+  [["nbc-sheet-NBC-07-MAAP-DD-TW-A-ALL-PD-DWG-0070.webp.part1"], "client/public/images/projects/nbc-sheets/NBC-07-MAAP-DD-TW-A-ALL-PD-DWG-0070.webp"],
+
   ["nbc-mechanical-context.webp", "client/public/images/projects/nbc-mechanical-context.webp"],
   ["nbc-mechanical-services.webp", "client/public/images/projects/nbc-mechanical-services.webp"],
   ["nbc-typical-floor.webp", "client/public/images/projects/nbc-typical-floor.webp"],
