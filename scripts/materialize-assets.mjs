@@ -2,6 +2,30 @@ import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 const assets = [
   [
+    ["smc-detail-level-1-medical-gas.webp.part1"],
+    "client/public/images/projects/smc-detail-level-1-medical-gas.webp",
+  ],
+  [
+    ["smc-detail-mri-room.webp.part1"],
+    "client/public/images/projects/smc-detail-mri-room.webp",
+  ],
+  [
+    ["smc-detail-water-treatment.webp.part1"],
+    "client/public/images/projects/smc-detail-water-treatment.webp",
+  ],
+  [
+    ["smc-detail-medical-gas-reserve.webp.part1"],
+    "client/public/images/projects/smc-detail-medical-gas-reserve.webp",
+  ],
+  [
+    ["smc-detail-patient-rooms.webp.part1"],
+    "client/public/images/projects/smc-detail-patient-rooms.webp",
+  ],
+  [
+    ["smc-detail-basement-1.webp.part1", "smc-detail-basement-1.webp.part2"],
+    "client/public/images/projects/smc-detail-basement-1.webp",
+  ],
+  [
     ["smc-bathroom-ws.webp.part1"],
     "client/public/images/projects/smc-bathroom-ws.webp",
   ],
