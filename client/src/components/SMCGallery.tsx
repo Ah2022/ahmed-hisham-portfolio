@@ -5,7 +5,7 @@ const views = [
   {
     id: "model",
     label: "3D model",
-    description: "SMC 3 hospital architectural cutaway and model context.",
+    description: "SMC 3 hospital exterior 3D model, including the roof canopy and utility building.",
   },
   {
     id: "drainage",
@@ -14,13 +14,13 @@ const views = [
   },
   {
     id: "medical-gas-01",
-    label: "Medical gas 01",
-    description: "Medical gas network — first supplied coordination view.",
+    label: "Medical Gas",
+    description: "Medical gas network within the hospital model.",
   },
   {
     id: "medical-gas-02",
-    label: "Medical gas 02",
-    description: "Medical gas network — second supplied coordination view.",
+    label: "Water Supply",
+    description: "Water-supply network within the hospital model.",
   },
   {
     id: "fuel-oil",
