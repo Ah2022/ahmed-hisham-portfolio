@@ -14,6 +14,7 @@ import ProjectPreview from "@/components/ProjectPreview";
 import ProjectCover from "@/components/ProjectCover";
 import SMCGallery from "@/components/SMCGallery";
 import AlShafaaGallery from "@/components/AlShafaaGallery";
+import SMCProjectMedia from "@/components/SMCProjectMedia";
 import SMCBathroomComparison from "@/components/SMCBathroomComparison";
 import CoordinationDemo from "@/components/CoordinationDemo";
 import NotFound from "./NotFound";
@@ -257,22 +258,26 @@ function CaseStudy({ project }: { project: Project }) {
                   ) : (
                     <CoordinationDemo />
                   ))}
-                <div className="media-slots">
-                  <h3>Project media slots</h3>
-                  <p>
-                    Reserved for actual model views, drawings and recorded
-                    coordination evidence.
-                  </p>
-                  <div>
-                    {project.mediaNeeded.map(media => (
-                      <figure key={media}>
-                        <ImageIcon size={24} aria-hidden="true" />
-                        <figcaption>{media}</figcaption>
-                        <span>Media to be supplied</span>
-                      </figure>
-                    ))}
+                {project.slug === "smc-hospital" ? (
+                  <SMCProjectMedia />
+                ) : (
+                  <div className="media-slots">
+                    <h3>Project media slots</h3>
+                    <p>
+                      Reserved for actual model views, drawings and recorded
+                      coordination evidence.
+                    </p>
+                    <div>
+                      {project.mediaNeeded.map(media => (
+                        <figure key={media}>
+                          <ImageIcon size={24} aria-hidden="true" />
+                          <figcaption>{media}</figcaption>
+                          <span>Media to be supplied</span>
+                        </figure>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </>
             )}
           </section>
