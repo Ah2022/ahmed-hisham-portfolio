@@ -13,10 +13,6 @@ const media = [
       "Abstract 3D View of Medical Gas Reserve Cylinders and Liquid Oxygen Tank",
   },
   { id: "patient-rooms", title: "Drone View of Patient Rooms" },
-  {
-    id: "basement-1",
-    title: "Coordinated View of Mechanical Disciplines · Basement 1",
-  },
 ];
 export default function SMCProjectMedia() {
   return (

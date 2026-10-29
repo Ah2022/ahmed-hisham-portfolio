@@ -14,6 +14,7 @@ import ProjectPreview from "@/components/ProjectPreview";
 import ProjectCover from "@/components/ProjectCover";
 import SMCGallery from "@/components/SMCGallery";
 import AlShafaaGallery from "@/components/AlShafaaGallery";
+import SMCTechnicalSheets from "@/components/SMCTechnicalSheets";
 import SMCProjectMedia from "@/components/SMCProjectMedia";
 import SMCBathroomComparison from "@/components/SMCBathroomComparison";
 import CoordinationDemo from "@/components/CoordinationDemo";
@@ -259,7 +260,10 @@ function CaseStudy({ project }: { project: Project }) {
                     <CoordinationDemo />
                   ))}
                 {project.slug === "smc-hospital" ? (
-                  <SMCProjectMedia />
+                  <>
+                    <SMCTechnicalSheets />
+                    <SMCProjectMedia />
+                  </>
                 ) : (
                   <div className="media-slots">
                     <h3>Project media slots</h3>
