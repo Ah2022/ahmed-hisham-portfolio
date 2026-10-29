@@ -14,6 +14,7 @@ import ProjectPreview from "@/components/ProjectPreview";
 import ProjectCover from "@/components/ProjectCover";
 import SMCGallery from "@/components/SMCGallery";
 import AlShafaaGallery from "@/components/AlShafaaGallery";
+import SMCBathroomComparison from "@/components/SMCBathroomComparison";
 import CoordinationDemo from "@/components/CoordinationDemo";
 import NotFound from "./NotFound";
 
@@ -250,7 +251,12 @@ function CaseStudy({ project }: { project: Project }) {
                   </>
                 )}
                 {(project.category === "Healthcare" ||
-                  project.category === "High-rise") && <CoordinationDemo />}
+                  project.category === "High-rise") &&
+                  (project.slug === "smc-hospital" ? (
+                    <SMCBathroomComparison />
+                  ) : (
+                    <CoordinationDemo />
+                  ))}
                 <div className="media-slots">
                   <h3>Project media slots</h3>
                   <p>
