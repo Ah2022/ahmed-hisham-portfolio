@@ -1,0 +1,116 @@
+.smc-gallery {
+  margin: 24px auto;
+  width: 100%;
+  max-width: 1080px;
+}
+.smc-gallery-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.smc-gallery button,
+.smc-gallery-toolbar a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid #304054;
+  border-radius: 8px;
+  background: #101c2b;
+  color: #d7e3f2;
+  font-size: 12px;
+  cursor: pointer;
+}
+.smc-gallery button[aria-pressed="true"] {
+  color: #5eead4;
+  border-color: #5eead4;
+  background: #5eead412;
+}
+.smc-gallery button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.smc-gallery figure {
+  margin: 0;
+  border: 1px solid #304054;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.smc-gallery-viewport {
+  aspect-ratio: 16/9;
+  overflow: auto;
+  background: #222932;
+}
+.smc-gallery-viewport img {
+  display: block;
+  max-width: none;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+  object-position: center;
+  background: #222932;
+}
+.smc-gallery figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 20px;
+  background: #101a28;
+  min-height: 92px;
+}
+.smc-gallery figcaption strong {
+  color: #5eead4;
+  font-size: 14px;
+}
+.smc-gallery figcaption span {
+  color: #9cadbf;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.smc-gallery-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.smc-gallery-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #9cadbf;
+  font-size: 12px;
+}
+.smc-gallery-toolbar input {
+  accent-color: #5eead4;
+  min-height: 36px;
+  width: 110px;
+}
+.smc-gallery :focus-visible {
+  outline: 2px solid #5eead4;
+  outline-offset: 4px;
+}
+@media (max-width: 600px) {
+  .smc-gallery-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .smc-gallery-toolbar {
+    gap: 10px;
+  }
+  .smc-gallery-toolbar label {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+  .smc-gallery-toolbar a {
+    font-size: 11px;
+  }
+  .smc-gallery figcaption {
+    padding: 14px;
+  }
+}

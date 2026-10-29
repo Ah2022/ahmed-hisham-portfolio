@@ -230,6 +230,7 @@ export default defineConfig({
       ".manus-asia.computer",
       ".manuscomputer.ai",
       ".manusvm.computer",
+      "terminal.local",
       "localhost",
       "127.0.0.1",
     ],
