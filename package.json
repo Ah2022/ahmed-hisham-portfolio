@@ -5,14 +5,15 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "build": "vite build --outDir ../build",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
     "postinstall": "node scripts/materialize-assets.mjs",
     "prebuild": "node scripts/materialize-assets.mjs",
-    "build:site": "node scripts/materialize-assets.mjs && vite build --outDir ../build"
+    "build:site": "node scripts/materialize-assets.mjs && vite build --outDir ../build",
+    "build:server": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
