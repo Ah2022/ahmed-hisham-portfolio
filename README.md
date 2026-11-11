@@ -149,6 +149,11 @@ ahmed-hisham-portfolio/
 ### Install and develop
 
 ```bash
+# Clone the repository
+git clone https://github.com/Ah2022/ahmed-hisham-portfolio.git
+cd ahmed-hisham-portfolio
+
+# Install dependencies
 pnpm install
 pnpm dev
 ```
@@ -177,3 +182,9 @@ pnpm build:site
 ## License
 
 This project is proprietary. All rights reserved by Ahmed Hisham.
+
+## Interactive portfolio upgrade
+
+Five BIM hero modes, an interactive portrait, evidence-linked metrics, numbered command navigation, project filters, expandable experience and automation tools, and four interactive project case-study routes. Diagrams are illustrative; project captures can be supplied separately.
+
+Use `pnpm build:site` for static hosting. Photo and CV sources are stored losslessly in `source-assets` and restored automatically on installation/build by `scripts/materialize-assets.mjs`.
