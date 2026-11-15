@@ -38,11 +38,11 @@ export default function SMCInteractiveModel() {
         <div className="smc-interactive-copy">
           <span className="demo-badge">SMC / BUILDING ANATOMY</span>
           <h3>Explore the building.<br />Reveal the systems.</h3>
-          <p>Orbit the hospital, peel back its façade, lift the roof and explore the structure, drainage and medical gas models.</p>
+          <p>Orbit the hospital, reveal its systems, or step inside for a guided walk through a model-derived interior area.</p>
           <Dialog.Trigger asChild>
             <button className="smc-launch"><Box size={18} aria-hidden="true" /> Launch interactive 3D <ArrowUpRight size={18} aria-hidden="true" /></button>
           </Dialog.Trigger>
-          <small>Starts with a lighter overview. Load additional systems and full detail when you need them.</small>
+          <small>Starts with a lighter overview. Choose Walk inside for keyboard or touch navigation and a guided route.</small>
         </div>
       </section>
       <Dialog.Portal>
@@ -56,7 +56,7 @@ export default function SMCInteractiveModel() {
               <Dialog.Close aria-label="Close interactive 3D"><X size={20} aria-hidden="true" /></Dialog.Close>
             </div>
           </div>
-          <Dialog.Description className="sr-only">Interactive hospital model. Drag to orbit, scroll or pinch to zoom, and choose a system. Escape closes the viewer.</Dialog.Description>
+          <Dialog.Description className="sr-only">Interactive hospital model. Drag to orbit, scroll or pinch to zoom, and choose a system. Choose Walk inside for first-person movement. Escape returns to orbit; press it again to close the viewer.</Dialog.Description>
           {fullscreenError && <p role="status" className="smc-fullscreen-message">{fullscreenError}</p>}
           {open && <iframe ref={frame} src={viewerUrl} title="SMC hospital interactive 3D model" allow="fullscreen" />}
         </Dialog.Content>

@@ -4,11 +4,11 @@ export async function getCatalog(){
   if(!catalog){const r=await fetch('./assets/catalog.json');if(!r.ok)throw Error('Model catalog could not be loaded.');catalog=await r.json();}
   return catalog;
 }
-export async function loadModel(stem,onGroup,{detail=false,onProgress=()=>{}}={}){
+export async function loadModel(stem,onGroup,{detail=false,filter=()=>true,onProgress=()=>{}}={}){
   const meta=(await getCatalog()).models[stem];
   const state=models[stem]??={loaded:new Set(),pending:null};
   if(state.pending)await state.pending;
-  const groups=meta.groups.filter((g,i)=>!state.loaded.has(i)&&(stem!=='building'||detail||!['Frames','Other'].includes(g.category)));
+  const groups=meta.groups.filter((g,i)=>!state.loaded.has(i)&&filter(g,i)&&(stem!=='building'||detail||!['Frames','Other'].includes(g.category)));
   const total=groups.reduce((s,g)=>s+g.bytes,0);let done=0;
   state.pending=(async()=>{
     // Sequential decoding bounds peak memory; each completed group can render immediately.
