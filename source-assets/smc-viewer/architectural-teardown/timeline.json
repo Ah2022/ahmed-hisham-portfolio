@@ -1,1 +1,80 @@
-{"duration":65,"fps":60,"transitionIn":3,"transitionOut":2,"beats":[{"at":0,"name":"Exterior"},{"at":8,"name":"Roof"},{"at":18,"name":"Facade"},{"at":30,"name":"Floors"},{"at":38,"name":"Structure"},{"at":44,"name":"Drain"},{"at":50,"name":"Medical gas"},{"at":56,"name":"Exterior return"}]}
+{
+  "duration": 65,
+  "fps": 60,
+  "transitionIn": 3,
+  "transitionOut": 2,
+  "beats": [
+    {
+      "at": 0,
+      "mode": "Exterior",
+      "title": "The assembled hospital",
+      "description": "Architectural shell and interior components"
+    },
+    {
+      "at": 7,
+      "mode": "Roof",
+      "title": "Reveal the roof assembly",
+      "description": "Upper building elements lift together"
+    },
+    {
+      "at": 14,
+      "mode": "Fa\u00e7ade",
+      "title": "Peel back the outer skin",
+      "description": "Curtain panels, framing and cladding"
+    },
+    {
+      "at": 22,
+      "mode": "Floors",
+      "title": "Read the hospital by level",
+      "description": "Floor plates and supporting structure"
+    },
+    {
+      "at": 28,
+      "mode": "Structure",
+      "title": "The supporting framework",
+      "description": "Structural model from the coordinated export"
+    },
+    {
+      "at": 33,
+      "mode": "HVAC",
+      "title": "Air distribution",
+      "description": "Ductwork and mechanical fittings"
+    },
+    {
+      "at": 38,
+      "mode": "Fire",
+      "title": "Fire protection and fuel piping",
+      "description": "Fire protection and fuel distribution systems"
+    },
+    {
+      "at": 43,
+      "mode": "Drain",
+      "title": "The drainage network",
+      "description": "Drainage pipework and fittings"
+    },
+    {
+      "at": 48,
+      "mode": "MedicalGas",
+      "title": "The medical gas network",
+      "description": "Medical gas pipework and fittings"
+    },
+    {
+      "at": 53,
+      "mode": "Electrical",
+      "title": "Electrical containment",
+      "description": "Conduits, trays and fittings"
+    },
+    {
+      "at": 58,
+      "mode": "Equipment",
+      "title": "Medical equipment",
+      "description": "Equipment geometry across the hospital"
+    },
+    {
+      "at": 62,
+      "mode": "Exterior",
+      "title": "Return to the assembled building",
+      "description": "Architectural shell and interior components"
+    }
+  ]
+}
