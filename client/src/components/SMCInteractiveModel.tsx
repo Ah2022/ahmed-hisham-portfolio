@@ -42,7 +42,7 @@ export default function SMCInteractiveModel() {
           <Dialog.Trigger asChild>
             <button className="smc-launch"><Box size={18} aria-hidden="true" /> Launch interactive 3D <ArrowUpRight size={18} aria-hidden="true" /></button>
           </Dialog.Trigger>
-          <small>Starts with a lighter overview. Load additional systems and full detail when you need them.</small>
+          <small>Explore the 3DView2 architecture manually. Choose Play tour to load the detailed 3DView model one chapter at a time.</small>
         </div>
       </section>
       <Dialog.Portal>
